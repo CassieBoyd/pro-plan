@@ -1,0 +1,57 @@
+{
+    "users": [
+        {
+            "username": "FairytaleFinery",
+            "email": "test@test.com",
+            "password": "123",
+            "id": 1
+        }
+    ],
+    "projects": [
+          {
+              "id": 1,
+              "userId": 1,
+              "name": "Proton Pack",
+              "startDate": "2019-12-21",
+              "dueDate": "2020-12-21"
+          }
+      ],
+    "tasks": [
+          {
+              "id": 1,
+              "projectId": 1,
+              "taskName": "Paint shell",
+              "taskNote": "Use Rust-Oleum Hammered Spray Paint in black to paint the shell",
+              "complete": false
+          }
+      ],
+    "purchases": [
+          {
+            "id": 1,
+            "projectId": 1,
+            "purchaseName": "Buy Clippard R-331",
+            "url": "https://www.gbfans.com/shop/clippard/clippard-r-331/",
+            "purchaseNotes": "",
+            "quantity": 1,
+            "units": "piece",
+            "cost": 40,
+            "purchased": false
+          }
+      ],
+    "supplies": [
+          {
+            "id": 1,
+            "projectId": 1,
+            "supplyName": "Rust-Oleum Hammered Spray Paint in black",
+            "supplyNotes": "",
+            "quantity": 2,
+            "units": "cans"
+          }
+      ],
+    "references": [
+
+      ],
+    "photos": [
+
+      ]
+}
