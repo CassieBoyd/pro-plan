@@ -5,11 +5,11 @@ class ProjectCard extends Component {
     return (
       <div className="card">
         <div className="card-content">
-          <picture>
-            <img src={require('./logo.svg')} alt="My Dog" />
-          </picture>
-          <h3>Name: <span className="card-petname">Doodles</span></h3>
-          <p>Breed: Poodle</p>
+          {/* <picture>
+            <img src={require('../../projectName.jpg')} alt="Project" thumbnail />
+          </picture> */}
+          <h3>Project: <span className="card-petname">Proton Pack</span></h3>
+          <p>Due Date: 2020-12-21</p>
         </div>
       </div>
     );

@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
+import { Navbar } from 'react-bootstrap'
 import './Pro-Plan.css'
-
+import ProjectCard from './components/Projects/ProjectCard';
 class ProPlan extends Component {
     render() {
         return (
             <div>
-                <h2>Student Kennels<br />
-                    <small>Loving care when you're not there.</small>
-                </h2>
-                <address>
-                    Visit Us at the Nashville North Location
-                    <br />500 Puppy Way
-                </address>
+                <Navbar bg="primary">Hello there</Navbar>
+                <ProjectCard />
             </div>
         );
     }
