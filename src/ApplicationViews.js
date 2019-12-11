@@ -1,7 +1,7 @@
 import { Route } from 'react-router-dom'
 import React, { Component } from 'react'
-import Home from './home/Home'
 import ProjectCard from './components/Projects/ProjectCard'
+import ProjectList from './components/Projects/ProjectList'
 
 
 
@@ -11,10 +11,10 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         {/* <Route exact path="/" render={(props) => {
-          return <Home />
-        }} /> */}
-        <Route path="/projects" render={(props) => {
           return <ProjectCard />
+        }} /> */}
+        <Route excat path="/" render={(props) => {
+          return <ProjectList />
         }} />
       </React.Fragment>
     )

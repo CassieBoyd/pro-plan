@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { Navbar } from 'react-bootstrap'
 import ApplicationViews from '../../ApplicationViews'
 
-class Home extends Component {
+class ProjectsMain extends Component {
   render() {
     return (
+        <React.Fragment>
         <Navbar bg="primary">Hello there</Navbar>
 <ApplicationViews />
+</React.Fragment>
     )
   }
 }
 
-export default Home
+export default ProjectsMain
