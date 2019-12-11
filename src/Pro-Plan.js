@@ -1,28 +1,23 @@
-// Renamed from App.js
-
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+import { Navbar } from 'react-bootstrap'
+import './Pro-Plan.css'
+import ApplicationViews from './ApplicationViews';
+import { Link, withRouter } from "react-router-dom"
+class ProPlan extends Component {
+    render() {
+        return (
+            <>
+                <Navbar bg="primary"><ul className="container">
+            <li><Link className="nav-link" to="/tasks">Tasks</Link></li>
+            <li><Link className="nav-link" to="/purchases">Shop</Link></li>
+            <li>Pics</li>
+            <li>Links</li>
+            <li>Supplies</li>
+          </ul></Navbar>
+                <ApplicationViews />
+            </>
+        );
+    }
 }
 
-export default App;
+export default ProPlan
