@@ -6,5 +6,14 @@ export default {
   },
   getAll() {
     return fetch(`${remoteURL}/projects`).then(result => result.json())
-  }
+  },
+  post(newProject) {
+    return fetch(`${remoteURL}/projects`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newProject)
+    }).then(data => data.json())
+}
 }

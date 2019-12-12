@@ -7,6 +7,8 @@ import ProPlan from "./Pro-Plan";
 import { BrowserRouter as Router } from "react-router-dom";
 // import Home from './components/ProjectsMain/Projects';
 
+localStorage.setItem("userId", 1)
+
 ReactDOM.render(
   <Router>
     <ProPlan />

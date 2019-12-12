@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
-import { Navbar } from 'react-bootstrap'
+import { Navbar, ListGroup } from 'react-bootstrap'
 import './Pro-Plan.css'
 import ApplicationViews from './ApplicationViews';
-import { Link, withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
+import NavigationBar from './components/Nav/NavigationBar';
+import ActionBar from './components/Nav/ActionBar';
 class ProPlan extends Component {
     render() {
         return (
             <>
-                <Navbar bg="primary"><ul className="container">
-            <li><Link className="nav-link" to="/tasks">Tasks</Link></li>
-            <li><Link className="nav-link" to="/purchases">Shop</Link></li>
-            <li>Pics</li>
-            <li>Links</li>
-            <li>Supplies</li>
-          </ul></Navbar>
+                <NavigationBar />
                 <ApplicationViews />
             </>
         );
