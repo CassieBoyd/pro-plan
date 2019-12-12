@@ -20,6 +20,9 @@ class ProjectEditForm extends Component {
       cancelItem = () => {
         this.props.history.push("/");
       };
+      editItem = () => {
+        this.props.project.id("/edit")
+      }
 
     handleFieldChange = evt => {
       const stateToChange = {}

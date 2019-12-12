@@ -15,7 +15,7 @@ class ActionBar extends Component {
                   <Button size="sm" variant="light" onClick={this.props.cancelItem}>Cancel Icon</Button>
                 ) : null}</Col>
               <Col xs={2}>{this.props.deleteItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.deleteItem}>Delete Icon</Button>
+                  <li><Button size="sm" variant="light" onClick={this.props.deleteItem}>Delete Icon</Button></li>
                 ) : null}</Col>
               <Col xs={2}>
                 {/* <Button size="sm" variant="light" href="/tasks">X</Button> */}

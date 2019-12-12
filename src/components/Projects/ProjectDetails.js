@@ -16,6 +16,9 @@ class ProjectDetail extends Component {
     await ProjectManager.delete(this.props.projectId)
     this.props.history.push("/")
   };
+  editItem = () => {
+    this.props.history.push(`/projects/${this.props.projectId}/edit`)
+  }
 
   componentDidMount(){
     console.log("ProjectDetail: ComponentDidMount");
@@ -40,7 +43,7 @@ class ProjectDetail extends Component {
             <p>Start Date: {this.state.startDate}</p>
 
         </div>
-        <ActionBar deleteItem={this.deleteItem} cancelItem={this.cancelItem}/>
+        <ActionBar deleteItem={this.deleteItem} cancelItem={this.cancelItem} editItem={this.editItem}/>
       </div>
     );
   }
