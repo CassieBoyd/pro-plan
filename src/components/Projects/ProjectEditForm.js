@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import ProjectManager from "../../modules/ProjectManager"
+import ProjectManager from "../modules/ProjectManager"
+import ActionBar from "../Nav/ActionBar";
 // import "./ProjectForm.css"
 
 class ProjectEditForm extends Component {
@@ -12,6 +13,14 @@ class ProjectEditForm extends Component {
       loadingStatus: true,
     };
 
+    saveItem = () => {
+        this.constructNewProject()
+        console.log("saving project stuff");
+      };
+      cancelItem = () => {
+        this.props.history.push("/");
+      };
+
     handleFieldChange = evt => {
       const stateToChange = {}
       stateToChange[evt.target.id] = evt.target.value
@@ -21,22 +30,23 @@ class ProjectEditForm extends Component {
     updateExistingProject = evt => {
       evt.preventDefault()
       this.setState({ loadingStatus: true });
-      const editedAnimal = {
-        id: this.props.match.params.animalId,
-        name: this.state.animalName,
-        breed: this.state.breed
+      const editedProject = {
+        id: this.props.match.params.projectId,
+        name: this.state.projectName,
+        dueDate: this.state.dueDate
       };
 
-      ProjectManager.update(editedAnimal)
-      .then(() => this.props.history.push("/animals"))
+      ProjectManager.update(editedProject)
+      .then(() => this.props.history.push("/projects"))
     }
 
     componentDidMount() {
-      ProjectManager.get(this.props.match.params.animalId)
+      ProjectManager.get(this.props.match.params.projectId)
       .then(project => {
           this.setState({
-            animalName: project.name,
-            breed: project.breed,
+            projectName: project.name,
+            dueDate: project.dueDate,
+            startDate: project.startDate,
             loadingStatus: false,
           });
       });
@@ -54,19 +64,19 @@ class ProjectEditForm extends Component {
                 className="form-control"
                 onChange={this.handleFieldChange}
                 id="animalName"
-                value={this.state.animalName}
+                value={this.state.projectName}
               />
-              <label htmlFor="animalName">Project name</label>
+              <label htmlFor="projectlName">Project Name</label>
 
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="breed"
-                value={this.state.breed}
+                id="dueDate"
+                value={this.state.dueDate}
               />
-              <label htmlFor="breed">Breed</label>
+              <label htmlFor="dueDate">Due Date</label>
             </div>
             <div className="alignRight">
               <button
@@ -77,9 +87,10 @@ class ProjectEditForm extends Component {
             </div>
           </fieldset>
         </form>
+        <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} editItem={this.editItem}/>
         </>
       );
     }
 }
 
-export default AnimalEditForm
+export default ProjectEditForm

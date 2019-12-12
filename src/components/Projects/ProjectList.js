@@ -28,7 +28,7 @@ class ProjectList extends Component {
     return (
       <div className="container-cards">
         {this.state.projects.map(project => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} {...this.props}/>
         ))}
         <ActionBar addItem={this.addItem} />
       </div>

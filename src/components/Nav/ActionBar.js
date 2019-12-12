@@ -23,7 +23,9 @@ class ActionBar extends Component {
                   <Button size="sm" variant="light" onClick={this.props.addItem}>Add Icon</Button>
                 ) : null}
               </Col>
-              <Col xs={2}></Col>
+              <Col xs={2}>{this.props.editItem ? (
+                  <Button size="sm" variant="light" onClick={this.props.editItem}>Edit Icon</Button>
+                ) : null}</Col>
               <Col xs={2}>
                 {this.props.saveItem ? (
                   <Button size="sm" variant="light" onClick={this.props.saveItem}>Save Icon</Button>
