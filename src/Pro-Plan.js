@@ -11,7 +11,6 @@ class ProPlan extends Component {
             <>
                 <NavigationBar />
                 <ApplicationViews />
-                <ActionBar />
             </>
         );
     }
