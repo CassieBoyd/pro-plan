@@ -20,5 +20,14 @@ export default {
     return fetch(`${remoteURL}/projects/${id}`, {
       method: "DELETE"
     }).then(result => result.json());
+  },
+  update(editedProject) {
+    return fetch(`${remoteURL}/projects/${editedProject.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedProject)
+    }).then(data => data.json());
   }
 };

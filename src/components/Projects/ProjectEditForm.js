@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import ProjectManager from "../../modules/ProjectManager"
+import ProjectManager from "../modules/ProjectManager"
+import ActionBar from "../Nav/ActionBar";
 // import "./ProjectForm.css"
 
 class ProjectEditForm extends Component {
@@ -12,31 +13,45 @@ class ProjectEditForm extends Component {
       loadingStatus: true,
     };
 
+    saveItem = () => {
+        this.updateExistingProject()
+        console.log("saving project stuff");
+      };
+      cancelItem = () => {
+        this.props.history.push("/");
+      };
+      editItem = () => {
+        this.props.project.id("/edit")
+      }
+
     handleFieldChange = evt => {
       const stateToChange = {}
       stateToChange[evt.target.id] = evt.target.value
       this.setState(stateToChange)
     }
 
-    updateExistingProject = evt => {
-      evt.preventDefault()
+    updateExistingProject = () => {
       this.setState({ loadingStatus: true });
-      const editedAnimal = {
-        id: this.props.match.params.animalId,
-        name: this.state.animalName,
-        breed: this.state.breed
+      const editedProject = {
+        id: this.props.match.params.projectId,
+        name: this.state.projectName,
+        dueDate: this.state.dueDate,
+        startDate: this.state.startDate,
+    userId: this.state.userId
       };
 
-      ProjectManager.update(editedAnimal)
-      .then(() => this.props.history.push("/animals"))
+      ProjectManager.update(editedProject)
+      .then(() => this.props.history.push("/projects"))
     }
 
     componentDidMount() {
-      ProjectManager.get(this.props.match.params.animalId)
+      ProjectManager.get(this.props.match.params.projectId)
       .then(project => {
           this.setState({
-            animalName: project.name,
-            breed: project.breed,
+            projectName: project.name,
+            dueDate: project.dueDate,
+            startDate: project.startDate,
+            userId: Number(localStorage["userId"]),
             loadingStatus: false,
           });
       });
@@ -48,38 +63,32 @@ class ProjectEditForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
+                <label htmlFor="projectlName">Project Name</label>
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="animalName"
-                value={this.state.animalName}
+                id="projectName"
+                value={this.state.projectName}
               />
-              <label htmlFor="animalName">Project name</label>
 
+            <label htmlFor="dueDate">Due Date</label>
               <input
-                type="text"
+                type="date"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="breed"
-                value={this.state.breed}
+                id="dueDate"
+                value={this.state.dueDate}
               />
-              <label htmlFor="breed">Breed</label>
-            </div>
-            <div className="alignRight">
-              <button
-                type="button" disabled={this.state.loadingStatus}
-                onClick={this.updateExistingAnimal}
-                className="btn btn-primary"
-              >Submit</button>
             </div>
           </fieldset>
         </form>
+        <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} editItem={this.editItem}/>
         </>
       );
     }
 }
 
-export default AnimalEditForm
+export default ProjectEditForm
