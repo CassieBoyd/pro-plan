@@ -14,7 +14,7 @@ class ProjectEditForm extends Component {
     };
 
     saveItem = () => {
-        this.constructNewProject()
+        this.updateExistingProject()
         console.log("saving project stuff");
       };
       cancelItem = () => {
@@ -30,13 +30,14 @@ class ProjectEditForm extends Component {
       this.setState(stateToChange)
     }
 
-    updateExistingProject = evt => {
-      evt.preventDefault()
+    updateExistingProject = () => {
       this.setState({ loadingStatus: true });
       const editedProject = {
         id: this.props.match.params.projectId,
         name: this.state.projectName,
-        dueDate: this.state.dueDate
+        dueDate: this.state.dueDate,
+        startDate: this.state.startDate,
+    userId: this.state.userId
       };
 
       ProjectManager.update(editedProject)
@@ -50,6 +51,7 @@ class ProjectEditForm extends Component {
             projectName: project.name,
             dueDate: project.dueDate,
             startDate: project.startDate,
+            userId: Number(localStorage["userId"]),
             loadingStatus: false,
           });
       });
@@ -61,32 +63,25 @@ class ProjectEditForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
+                <label htmlFor="projectlName">Project Name</label>
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="animalName"
+                id="projectName"
                 value={this.state.projectName}
               />
-              <label htmlFor="projectlName">Project Name</label>
 
+            <label htmlFor="dueDate">Due Date</label>
               <input
-                type="text"
+                type="date"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
                 id="dueDate"
                 value={this.state.dueDate}
               />
-              <label htmlFor="dueDate">Due Date</label>
-            </div>
-            <div className="alignRight">
-              <button
-                type="button" disabled={this.state.loadingStatus}
-                onClick={this.updateExistingAnimal}
-                className="btn btn-primary"
-              >Submit</button>
             </div>
           </fieldset>
         </form>
