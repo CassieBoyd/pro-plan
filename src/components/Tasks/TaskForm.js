@@ -11,6 +11,7 @@ class TaskForm extends Component {
     projectId: Number(localStorage["projectId"]),
     loadingStatus: false
   };
+//   Function that calls constructNewTask method on props passed into it.
   saveItem = () => {
     this.constructNewTask()
     console.log("saving task");
@@ -41,7 +42,7 @@ class TaskForm extends Component {
 
       // Create the Task and redirect user to Task list
       TaskManager.post(Task).then(() =>
-        this.props.history.push("/projects")
+        this.props.history.push("/tasks")
       );
     }
   };
@@ -61,23 +62,15 @@ class TaskForm extends Component {
                 placeholder="Task Name"
               />
 
-<label htmlFor="startDate">Start Date</label>
+<label htmlFor="taskNote">Task Note</label>
               <input
-                type="date"
+                type="text"
                 required
                 onChange={this.handleFieldChange}
-                id="startDate"
+                id="taskNote"
                 
               />
 
-              <label htmlFor="taskNotes">Due Date</label>
-              <input
-                type="date"
-                required
-                onChange={this.handleFieldChange}
-                id="taskNotes"
-                
-              />
             </div>
             
           </fieldset>
