@@ -7,13 +7,13 @@ export default {
   getAll() {
     return fetch(`${remoteURL}/tasks`).then(result => result.json());
   },
-  post(newProject) {
+  post(newTask) {
     return fetch(`${remoteURL}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newProject)
+      body: JSON.stringify(newTask)
     }).then(data => data.json());
   },
   delete(id) {
