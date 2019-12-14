@@ -38,7 +38,7 @@ class ProjectDetail extends Component {
   render() {
     return (
         <div className="card">
-        <OptionBar />
+        <OptionBar projectId={this.props.projectId}/>
         <div className="card-content">
             <h3>Project: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>Due Date: {this.state.dueDate}</p>

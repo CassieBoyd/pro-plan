@@ -4,11 +4,12 @@ import ProjectList from "./components/Projects/ProjectList";
 import ProjectForm from "./components/Projects/ProjectForm";
 import ProjectDetail from "./components/Projects/ProjectDetails";
 import ProjectEditForm from "./components/Projects/ProjectEditForm";
+import TaskForm from "./components/Tasks/TaskForm";
+import TaskList from "./components/Tasks/TaskList";
 class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        
         <Route
           exact
           path="/"
@@ -31,7 +32,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          exact path="/projects/:projectId(\d+)"
+          exact
+          path="/projects/:projectId(\d+)"
           render={props => {
             // Pass the projectId to the projectDetailComponent
             return (
@@ -46,6 +48,14 @@ class ApplicationViews extends Component {
           path="/projects/:projectId(\d+)/edit"
           render={props => {
             return <ProjectEditForm {...props} />;
+          }}
+        />
+
+{/* ******************TASK ROUTES************************ */}
+        <Route
+          path="/projects/:projectId(\d+)/tasks"
+          render={props => {
+            return <TaskList {...props} projectId={parseInt(props.match.params.projectId)}/>;
           }}
         />
       </React.Fragment>

@@ -29,8 +29,8 @@ class TaskList extends Component {
     return (
       <div className="container-cards">
           <OptionBar />
-        {this.state.projects.map(project => (
-          <TaskCard key={project.id} project={project} {...this.props}/>
+        {this.state.tasks.map(task => (
+          <TaskCard key={task.id} task={task} {...this.props}/>
         ))}
         <ActionBar addItem={this.addItem} />
       </div>
