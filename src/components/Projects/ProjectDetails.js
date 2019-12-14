@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProjectManager from '../modules/ProjectManager';
 // import './ProjectDetail.css'
 import ActionBar from '../Nav/ActionBar';
+import OptionBar from '../Nav/OptionBar';
 
 class ProjectDetail extends Component {
 
@@ -36,7 +37,8 @@ class ProjectDetail extends Component {
 
   render() {
     return (
-      <div className="card">
+        <div className="card">
+        <OptionBar />
         <div className="card-content">
             <h3>Project: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
             <p>Due Date: {this.state.dueDate}</p>
