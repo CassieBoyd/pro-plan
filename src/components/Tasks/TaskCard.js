@@ -9,7 +9,7 @@ class TaskCard extends Component {
           <h3>Task: <span className="card-taskname">{this.props.task.taskName}</span></h3>
           <p>Note: {this.props.task.taskNote}</p>
         </div>
-        <a href={`/tasks/${this.props.task.id}`} className="stretched-link"></a>
+        <a href={`/projects/${this.props.projectId}/tasks/${this.props.task.id}`} className="stretched-link"></a>
       </div>
     );
   }

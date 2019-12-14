@@ -5,10 +5,9 @@ import ActionBar from "../Nav/ActionBar";
 
 class TaskForm extends Component {
   state = {
-    TaskName: "",
-    taskNotes: "",
-    complete: "",
-    projectId: Number(localStorage["projectId"]),
+    taskName: "",
+    taskNote: "",
+    complete: false,
     loadingStatus: false
   };
 //   Function that calls constructNewTask method on props passed into it.
@@ -17,7 +16,7 @@ class TaskForm extends Component {
     console.log("saving task");
   };
   cancelItem = () => {
-    this.props.history.push("/tasks");
+    this.props.history.push(`/projects/${this.props.projectId}/tasks`);
   };
 
   handleFieldChange = evt => {
@@ -29,20 +28,21 @@ class TaskForm extends Component {
   /*  Local method for validation, set loadingStatus, create Task      object, invoke the TaskManager post method, and redirect to the full Task list
    */
   constructNewTask = () => {
-    if (this.state.TaskName === "") {
+    if (this.state.taskName === "") {
       window.alert("Please input a Task Name");
     } else {
       this.setState({ loadingStatus: true });
-      const Task = {
-        name: this.state.TaskName,
-        taskNotes: this.state.taskNotes,
+      const task = {
+        taskName: this.state.taskName,
+        taskNote: this.state.taskNote,
         complete: this.state.complete,
-        projectsId: this.state.projectsId
+        projectId: this.props.projectId,
+
       };
 
       // Create the Task and redirect user to Task list
-      TaskManager.post(Task).then(() =>
-        this.props.history.push("/tasks")
+      TaskManager.post(task).then(() =>
+        this.props.history.push(`/projects/${this.props.projectId}/tasks`)
       );
     }
   };
@@ -53,12 +53,12 @@ class TaskForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
-              <label htmlFor="TaskName">Task Name</label>
+              <label htmlFor="taskName">Task Name</label>
               <input
                 type="text"
                 required
                 onChange={this.handleFieldChange}
-                id="TaskName"
+                id="taskName"
                 placeholder="Task Name"
               />
 

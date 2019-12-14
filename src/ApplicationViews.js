@@ -51,11 +51,26 @@ class ApplicationViews extends Component {
           }}
         />
 
-{/* ******************TASK ROUTES************************ */}
+        {/* ******************TASK ROUTES************************ */}
+        {/* Display all tasks associated with a project */}
         <Route
-          path="/projects/:projectId(\d+)/tasks"
+          exact path="/projects/:projectId(\d+)/tasks"
           render={props => {
-            return <TaskList {...props} projectId={parseInt(props.match.params.projectId)}/>;
+            return (
+              <TaskList
+                {...props}
+                projectId={parseInt(props.match.params.projectId)}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/tasks/new"
+          render={props => {
+            return <TaskForm {...props}                 projectId={parseInt(props.match.params.projectId)}
+            />;
           }}
         />
       </React.Fragment>

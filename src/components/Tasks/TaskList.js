@@ -11,7 +11,7 @@ class TaskList extends Component {
   };
 
   addItem = () => {
-    this.props.history.push("/tasks/new");
+    this.props.history.push(`/projects/${this.props.projectId}/tasks/new`);
   };
   componentDidMount() {
     console.log("Task List: ComponentDidMount");
