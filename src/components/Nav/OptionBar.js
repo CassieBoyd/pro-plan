@@ -10,7 +10,7 @@ class OptionBar extends Component {
         <Navbar bg="primary" variant fixed="sticky">
           <Nav className="container">
             <Nav.Link href={`/projects/${this.props.projectId}/tasks`}>Tasks</Nav.Link>
-            <Nav.Link href="/">Shop</Nav.Link>
+            <Nav.Link href={`/projects/${this.props.projectId}/purchases`}>Shop</Nav.Link>
             <Nav.Link href="/">Pics</Nav.Link>
             <Nav.Link href="/">Refs</Nav.Link>
             <Nav.Link href="/">Supplies</Nav.Link>

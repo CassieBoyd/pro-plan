@@ -7,6 +7,7 @@ import ProjectEditForm from "./components/Projects/ProjectEditForm";
 import TaskForm from "./components/Tasks/TaskForm";
 import TaskList from "./components/Tasks/TaskList";
 import TaskDetail from "./components/Tasks/TaskDetails";
+import PurchaseList from "./components/Purchases/PurchaseList";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -90,6 +91,22 @@ class ApplicationViews extends Component {
                 taskId={parseInt(props.match.params.taskId)}
 
                 {...props}
+              />
+            );
+          }}
+        />
+
+
+        {/* ******************PURCHASE ROUTES************************ */}
+        {/* Display all purchases associated with a project */}
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/purchases"
+          render={props => {
+            return (
+              <PurchaseList
+                {...props}
+                projectId={parseInt(props.match.params.projectId)}
               />
             );
           }}
