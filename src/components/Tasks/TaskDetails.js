@@ -9,8 +9,7 @@ class TaskDetail extends Component {
   state = {
       taskName: "",
       taskNote: "",
-      startDate: "",
-      userId: ""
+      complete: false
   }
 
   deleteItem = async () => {
@@ -27,10 +26,9 @@ class TaskDetail extends Component {
     TaskManager.get(this.props.taskId)
     .then((task) => {
       this.setState({
-        name: task.name,
-        dueDate: task.dueDate,
-        startDate: task.startDate,
-        userId: task.userId
+        taskName: task.taskName,
+        taskNote: task.taskNote,
+        complete: task.complete
       });
     });
   }
@@ -40,9 +38,8 @@ class TaskDetail extends Component {
         <div className="card">
         <OptionBar taskId={this.props.taskId}/>
         <div className="card-content">
-            <h3>Task: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
-            <p>Due Date: {this.state.dueDate}</p>
-            <p>Start Date: {this.state.startDate}</p>
+            <h3>Task: <span style={{ color: 'darkslategrey' }}>{this.state.taskName}</span></h3>
+            <p>Note: {this.state.taskNote}</p>
 
         </div>
         <ActionBar deleteItem={this.deleteItem} cancelItem={this.cancelItem} editItem={this.editItem}/>

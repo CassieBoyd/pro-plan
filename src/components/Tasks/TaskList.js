@@ -16,7 +16,7 @@ class TaskList extends Component {
   componentDidMount() {
     console.log("Task List: ComponentDidMount");
 
-    TaskManager.getAll().then(tasks => {
+    TaskManager.getAll(this.props.projectId).then(tasks => {
       this.setState({
         tasks: tasks
       });

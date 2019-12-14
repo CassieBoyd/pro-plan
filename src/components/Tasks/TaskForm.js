@@ -33,8 +33,8 @@ class TaskForm extends Component {
     } else {
       this.setState({ loadingStatus: true });
       const task = {
-        taskName: this.state.taskName,
-        taskNote: this.state.taskNote,
+        taskName: this.state.taskName.replace(/(\"|\')/g,"\$1"),
+        taskNote: this.state.taskNote.replace(/(\"|\')/g,"\$1"),
         complete: this.state.complete,
         projectId: this.props.projectId,
 
