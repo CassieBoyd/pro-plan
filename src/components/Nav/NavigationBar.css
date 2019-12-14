@@ -4,11 +4,11 @@ small {
   
   header {
     background-color:darkblue;
-    border: cornflowerblue solid 3px;
+    border: cornflowerblue solid 0px;
   }
   
   .site-title {
-    color: ghostwhite;
+    color: rgb(8, 8, 8);
     text-align: center;
   }
   
@@ -23,14 +23,14 @@ small {
     padding: 10px;
     text-align: center;
     font-size: 1.5em;
-    color: cornsilk;
+    color: black;
     box-sizing: border-box;
     background-color: cornflowerblue;
     list-style-type: none;
   }
   
   nav .container a {
-    color: cornsilk;
+    color: black;
   }
   
   nav .container a:hover {

@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom"
-import './NavigationBar.css'
-import { Navbar, Nav } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./NavigationBar.css";
+import { Navbar, Nav } from "react-bootstrap";
 
 class NavigationBar extends Component {
-
-  render(){
-
+  render() {
     return (
       <header>
         <Navbar bg="primary" variant fixed="sticky">
           <Nav className="container">
             <Nav.Link href="/">Logo</Nav.Link>
-            {/* <Nav.Link href="/purchases">Shop</Nav.Link> */}
-            {/* <Nav.Link>Pics</Nav.Link>
-            <Nav.Link>Links</Nav.Link>
-            <Nav.Link>Supplies</Nav.Link> */}
           </Nav>
         </Navbar>
       </header>
-    )
+    );
   }
 }
 
