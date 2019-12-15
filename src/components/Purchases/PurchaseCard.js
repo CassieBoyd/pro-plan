@@ -18,7 +18,7 @@ class PurchaseCard extends Component {
           ) : null}
           <p>Quantity: {this.props.purchase.quantity}</p>
           <p>Units: {this.props.purchase.units}</p>
-          <p>Cost: {this.props.purchase.cost}</p>
+          <p>Cost: ${this.props.purchase.cost}</p>
           <p>Link: <a href={this.props.purchase.url}>URL</a></p>
         </div>
         <Link to={`/projects/${this.props.projectId}/purchases/${this.props.purchase.id}`}

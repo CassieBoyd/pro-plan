@@ -84,23 +84,31 @@ class PurchaseForm extends Component {
                 id="quantity"
               />
 
-              <label htmlFor="units">Units</label>
 
-              <DropdownButton id="dropdown-basic-button" title="Units">
-                <Dropdown.Item href="#/action-1">yd</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">in</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">ea</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">ft</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">gal</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">pt</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">pr</Dropdown.Item>
-              </DropdownButton>
+              <DropdownButton id="dropdown-basic-button" title={this.state.units ? this.state.units : "Units"} value={this.state.units} >
+                <Dropdown.Item onSelect={()=>this.setState({units:"ea"})}>ea</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"in"})}>in</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"yd"})}>yd</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"ft"})}>ft</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"gal"})}>gal</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"pt"})}>pt</Dropdown.Item>
+                <Dropdown.Item onSelect={()=>this.setState({units:"pr"})}>pr</Dropdown.Item>
+                </DropdownButton>
 
+              
+              <label htmlFor="url">Link</label>
               <input
-                type="drop-down"
+                type="text"
                 required
                 onChange={this.handleFieldChange}
-                id="units"
+                id="url"
+              />
+              <label htmlFor="cost">Cost</label>
+              <input
+                type="text"
+                required
+                onChange={this.handleFieldChange}
+                id="cost"
               />
             </div>
           </fieldset>
