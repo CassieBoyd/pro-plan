@@ -15,6 +15,7 @@ import ReferenceList from "./components/References/ReferenceList";
 import ReferenceForm from "./components/References/ReferenceForm";
 import ReferenceDetail from "./components/References/ReferenceDetails";
 import PurchaseDetail from "./components/Purchases/PurchaseDetails";
+import SupplyDetail from "./components/Supplies/SupplyDetails";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -169,6 +170,21 @@ class ApplicationViews extends Component {
               <SupplyForm
                 {...props}
                 projectId={parseInt(props.match.params.projectId)}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/supplies/:supplyId(\d+)"
+          render={props => {
+            // Pass the supplyId to the SuppplyDetail Component
+            return (
+              <SupplyDetail
+                projectId={parseInt(props.match.params.projectId)}
+                supplyId={parseInt(props.match.params.supplyId)}
+                {...props}
               />
             );
           }}

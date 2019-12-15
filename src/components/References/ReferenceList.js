@@ -22,18 +22,6 @@ class ReferenceList extends Component {
     });
   }
 
-  // deleteItem = id => {
-  //   ReferenceManager.delete(id).then(() => {
-  //     ReferenceManager.getAll()
-  //       //   setState after delete
-  //       .then(newReferences => {
-  //         this.setState({
-  //           references: newReferences
-  //         });
-  //       });
-  //   });
-  // };
-
   render() {
     console.log("Reference List: Render");
 
@@ -45,7 +33,6 @@ class ReferenceList extends Component {
           />
         ))}
         <ActionBar addItem={this.addItem} />
-        {/* deleteItem={this.deleteItem} */}
       </div>
     );
   }
