@@ -6,7 +6,9 @@ class TaskCard extends Component {
     return (
       <div className="card">
         <div className="card-content">
-          <h3>Task: <span className="card-taskname">{this.props.task.taskName}</span></h3>
+          <h3>
+            {/* Task:  */}
+            <span className="card-taskname">{this.props.task.taskName}</span></h3>
           <p>Note: {this.props.task.taskNote}</p>
         </div>
         <Link to={`/projects/${this.props.projectId}/tasks/${this.props.task.id}`} className="stretched-link"></Link>

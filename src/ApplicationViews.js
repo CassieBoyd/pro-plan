@@ -14,6 +14,7 @@ import SupplyForm from "./components/Supplies/SupplyForm";
 import ReferenceList from "./components/References/ReferenceList";
 import ReferenceForm from "./components/References/ReferenceForm";
 import ReferenceDetail from "./components/References/ReferenceDetails";
+import PurchaseDetail from "./components/Purchases/PurchaseDetails";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -130,6 +131,21 @@ class ApplicationViews extends Component {
           }}
         />
 
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/purchases/:purchaseId(\d+)"
+          render={props => {
+            // Pass the purchaseId to the PurchaseDetail Component
+            return (
+              <PurchaseDetail
+                projectId={parseInt(props.match.params.projectId)}
+                purchaseId={parseInt(props.match.params.purchaseId)}
+                {...props}
+              />
+            );
+          }}
+        />
+
         {/* ******************SUPPLY ROUTES************************ */}
         {/* Display all supplies associated with a project */}
         <Route
@@ -194,7 +210,6 @@ class ApplicationViews extends Component {
               <ReferenceDetail
                 projectId={parseInt(props.match.params.projectId)}
                 referenceId={parseInt(props.match.params.referenceId)}
-
                 {...props}
               />
             );
