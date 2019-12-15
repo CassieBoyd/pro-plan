@@ -10,6 +10,7 @@ import TaskDetail from "./components/Tasks/TaskDetails";
 import PurchaseList from "./components/Purchases/PurchaseList";
 import PurchaseForm from "./components/Purchases/PurchaseForm";
 import SupplyList from "./components/Supplies/SupplyList";
+import SupplyForm from "./components/Supplies/SupplyForm";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -112,7 +113,7 @@ class ApplicationViews extends Component {
           }}
         />
 
-{/*  */}
+        {/*  */}
         <Route
           exact
           path="/projects/:projectId(\d+)/purchases/new"
@@ -126,14 +127,27 @@ class ApplicationViews extends Component {
           }}
         />
 
-{/* ******************SUPPLY ROUTES************************ */}
+        {/* ******************SUPPLY ROUTES************************ */}
         {/* Display all supplies associated with a project */}
-<Route
+        <Route
           exact
           path="/projects/:projectId(\d+)/supplies"
           render={props => {
             return (
               <SupplyList
+                {...props}
+                projectId={parseInt(props.match.params.projectId)}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/supplies/new"
+          render={props => {
+            return (
+              <SupplyForm
                 {...props}
                 projectId={parseInt(props.match.params.projectId)}
               />
