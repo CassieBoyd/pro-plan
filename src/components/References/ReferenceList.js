@@ -22,6 +22,18 @@ class ReferenceList extends Component {
     });
   }
 
+  // deleteItem = id => {
+  //   ReferenceManager.delete(id).then(() => {
+  //     ReferenceManager.getAll()
+  //       //   setState after delete
+  //       .then(newReferences => {
+  //         this.setState({
+  //           references: newReferences
+  //         });
+  //       });
+  //   });
+  // };
+
   render() {
     console.log("Reference List: Render");
 
@@ -29,9 +41,11 @@ class ReferenceList extends Component {
       <div className="container-cards">
           <OptionBar projectId={this.props.projectId}/>
         {this.state.references.map(reference => (
-          <ReferenceCard key={reference.id} reference={reference} {...this.props}/>
+          <ReferenceCard key={reference.id} reference={reference} {...this.props}           deleteReference={this.deleteReference}
+          />
         ))}
         <ActionBar addItem={this.addItem} />
+        {/* deleteItem={this.deleteItem} */}
       </div>
     );
   }
