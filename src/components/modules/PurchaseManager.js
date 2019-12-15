@@ -7,13 +7,13 @@ export default {
   getAll(projectId) {
     return fetch(`${remoteURL}/purchases?projectId=${projectId}`).then(result => result.json());
   },
-  post(newpurchase) {
+  post(newPurchase) {
     return fetch(`${remoteURL}/purchases`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newpurchase)
+      body: JSON.stringify(newPurchase)
     }).then(data => data.json());
   },
   delete(id) {
@@ -21,13 +21,13 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
-  update(editedpurchase) {
-    return fetch(`${remoteURL}/purchases/${editedpurchase.id}`, {
+  update(editedPurchase) {
+    return fetch(`${remoteURL}/purchases/${editedPurchase.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(editedpurchase)
+      body: JSON.stringify(editedPurchase)
     }).then(data => data.json());
   }
 };
