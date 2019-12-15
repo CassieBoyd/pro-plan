@@ -6,7 +6,7 @@ class ProjectsMain extends Component {
   render() {
     return (
         <React.Fragment>
-        <Navbar bg="primary">Hello there</Navbar>
+        {/* <Navbar bg="primary">Hello there</Navbar> */}
 <ApplicationViews />
 </React.Fragment>
     )

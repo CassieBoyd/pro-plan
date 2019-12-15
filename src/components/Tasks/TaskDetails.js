@@ -36,7 +36,7 @@ class TaskDetail extends Component {
   render() {
     return (
         <div className="card">
-        <OptionBar taskId={this.props.taskId}/>
+        <OptionBar taskId={this.props.taskId} projectId={this.props.projectId}/>
         <div className="card-content">
             <h3>Task: <span style={{ color: 'darkslategrey' }}>{this.state.taskName}</span></h3>
             <p>Note: {this.state.taskNote}</p>
