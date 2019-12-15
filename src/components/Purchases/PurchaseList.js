@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import the components we will need
 import PurchaseCard from "./PurchaseCard";
 import PurchaseManager from "../modules/PurchaseManager";
 import ActionBar from "../Nav/ActionBar";
