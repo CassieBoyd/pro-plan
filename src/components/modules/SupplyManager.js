@@ -7,13 +7,13 @@ export default {
   getAll(projectId) {
     return fetch(`${remoteURL}/supplies?projectId=${projectId}`).then(result => result.json());
   },
-  post(newsupply) {
+  post(newSupply) {
     return fetch(`${remoteURL}/supplies`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newsupply)
+      body: JSON.stringify(newSupply)
     }).then(data => data.json());
   },
   delete(id) {
@@ -21,13 +21,13 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
-  update(editedsupply) {
-    return fetch(`${remoteURL}/supplies/${editedsupply.id}`, {
+  update(EditedSupply) {
+    return fetch(`${remoteURL}/supplies/${EditedSupply.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(editedsupply)
+      body: JSON.stringify(EditedSupply)
     }).then(data => data.json());
   }
 };

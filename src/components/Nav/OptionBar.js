@@ -12,7 +12,7 @@ class OptionBar extends Component {
             <Nav.Link href={`/projects/${this.props.projectId}/tasks`}>Tasks</Nav.Link>
             <Nav.Link href={`/projects/${this.props.projectId}/purchases`}>Shop</Nav.Link>
             <Nav.Link href="/">Pics</Nav.Link>
-            <Nav.Link href="/">Refs</Nav.Link>
+            <Nav.Link href={`/projects/${this.props.projectId}/references`}>Refs</Nav.Link>
             <Nav.Link href={`/projects/${this.props.projectId}/supplies`}>Supplies</Nav.Link>
           </Nav>
         </Navbar>
