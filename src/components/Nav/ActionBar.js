@@ -10,7 +10,9 @@ class ActionBar extends Component {
         <Navbar bg="primary" variant fixed="bottom">
           <Container className="container">
             <Row>
-              <Col xs={2}></Col>
+              <Col xs={2}>{this.props.completeItem ? (
+                  <Button size="sm" variant="light" onClick={this.props.completeItem}>Complete</Button>
+                ) : null}</Col>
               <Col xs={2}>{this.props.cancelItem ? (
                   <Button size="sm" variant="light" onClick={this.props.cancelItem}>Cancel Icon</Button>
                 ) : null}</Col>

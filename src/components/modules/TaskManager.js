@@ -29,5 +29,14 @@ export default {
       },
       body: JSON.stringify(editedTask)
     }).then(data => data.json());
+  },
+  patch(editedTask) {
+    return fetch(`${remoteURL}/tasks/${editedTask.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedTask)
+    }).then(data => data.json());
   }
 };
