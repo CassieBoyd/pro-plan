@@ -5,7 +5,10 @@ export default {
     return fetch(`${remoteURL}/projects/${id}`).then(result => result.json());
   },
   getAll() {
-    return fetch(`${remoteURL}/projects`).then(result => result.json());
+    const userId = JSON.parse(localStorage.getItem("credentials")) 
+    console.log(userId.id)
+   
+    return fetch(`${remoteURL}/projects?userId=${userId.id}`).then(result => result.json());
   },
   post(newProject) {
     return fetch(`${remoteURL}/projects`, {

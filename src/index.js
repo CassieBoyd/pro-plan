@@ -5,12 +5,13 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProPlan from "./Pro-Plan";
 import { BrowserRouter as Router } from "react-router-dom";
+
 // import Home from './components/ProjectsMain/Projects';
 
 {/* <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script> */}
 
 
-localStorage.setItem("userId", 1)
+// localStorage.setItem("userId", 1)
 
 ReactDOM.render(
   <Router>

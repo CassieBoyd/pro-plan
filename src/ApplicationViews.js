@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import ProjectList from "./components/Projects/ProjectList";
 import ProjectForm from "./components/Projects/ProjectForm";
@@ -20,6 +20,7 @@ import TaskEditForm from "./components/Tasks/TaskEditForm";
 import PurchaseEditForm from "./components/Purchases/PurchaseEditForm";
 import SupplyEditForm from "./components/Supplies/SupplyEditForm";
 import ReferenceEditForm from "./components/References/ReferenceEditForm";
+import LogIn from "./components/Auth/LogIn";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -288,6 +289,23 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+
+        <Route
+          path="/LogIn"
+          render={props => {
+            if (this.props.user) {
+              return <Redirect to="/" />;
+            } else {
+              return (
+                <LogIn
+                  setUser={this.props.setUser}
+                  {...props}
+                  {...this.props}
+                />
+              );
+            }
           }}
         />
       </React.Fragment>

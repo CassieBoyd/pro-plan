@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./NavigationBar.css";
-import { Navbar, Nav, Row, Container, Col, Button } from "react-bootstrap";
+import { Navbar, Row, Container, Col, Button } from "react-bootstrap";
 
 class ActionBar extends Component {
   render() {
