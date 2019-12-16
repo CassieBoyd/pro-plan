@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./NavigationBar.css";
-import { Navbar, Nav, Row, Container, Col, Button } from "react-bootstrap";
+import { Navbar, Row, Container, Col, Button } from "react-bootstrap";
 
 class ActionBar extends Component {
   render() {
@@ -33,9 +32,6 @@ class ActionBar extends Component {
                   <Button size="sm" variant="light" onClick={this.props.saveItem}>Save Icon</Button>
                 ) : null}
               </Col>
-              {/* <Button size="sm" variant="light">Pics</Button>
-            <Button size="sm" variant="light">Links</Button>
-            <Button size="sm" variant="light">Supplies</Button> */}
             </Row>
           </Container>
         </Navbar>

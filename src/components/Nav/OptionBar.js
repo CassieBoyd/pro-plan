@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./NavigationBar.css";
-import { Navbar, Nav, Row, Container, Col, Button } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 
 class OptionBar extends Component {
   render() {

@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import { Navbar, ListGroup } from 'react-bootstrap'
 import './Pro-Plan.css'
 import ApplicationViews from './ApplicationViews';
-import { Link } from "react-router-dom"
 import NavigationBar from './components/Nav/NavigationBar';
-import ActionBar from './components/Nav/ActionBar';
 class ProPlan extends Component {
+    isAuthenticated = () => localStorage.getItem("credentials") !== null
+
+    setUser = authObj => {
+        localStorage.setItem("credentials", JSON.stringify(authObj))
+        this.setState({
+          user: this.isAuthenticated(),
+        })
+      }
+    
     render() {
         return (
             <>
                 <NavigationBar />
-                <ApplicationViews />
+                <ApplicationViews setUser = {this.setUser}/>
             </>
         );
     }
