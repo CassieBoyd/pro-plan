@@ -1,30 +1,33 @@
-import React, { Component } from 'react';
-import TaskManager from '../modules/TaskManager';
+import React, { Component } from "react";
+import TaskManager from "../modules/TaskManager";
 // import './TaskDetail.css'
-import ActionBar from '../Nav/ActionBar';
-import OptionBar from '../Nav/OptionBar';
+import ActionBar from "../Nav/ActionBar";
+import OptionBar from "../Nav/OptionBar";
 
 class TaskDetail extends Component {
-
   state = {
-      taskName: "",
-      taskNote: "",
-      complete: false
-  }
+    taskName: "",
+    taskNote: "",
+    complete: false
+  };
 
   deleteItem = async () => {
-    await TaskManager.delete(this.props.taskId)
-    this.props.history.push(`/projects/${this.props.projectId}/tasks`)
+    await TaskManager.delete(this.props.taskId);
+    this.props.history.push(`/projects/${this.props.projectId}/tasks`);
   };
   editItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}/tasks/${this.props.taskId}/edit`)
-  }
+    this.props.history.push(
+      `/projects/${this.props.projectId}/tasks/${this.props.taskId}/edit`
+    );
+  };
+  completeItem = async () => {
+    await TaskManager.patch({ id: this.props.taskId, complete: true });
+  };
 
-  componentDidMount(){
+  componentDidMount() {
     console.log("TaskDetail: ComponentDidMount");
     //get(id) from TaskManager and hang on to the data; put it into state
-    TaskManager.get(this.props.taskId)
-    .then((task) => {
+    TaskManager.get(this.props.taskId).then(task => {
       this.setState({
         taskName: task.taskName,
         taskNote: task.taskNote,
@@ -35,14 +38,26 @@ class TaskDetail extends Component {
 
   render() {
     return (
-        <div className="card">
-        <OptionBar taskId={this.props.taskId} projectId={this.props.projectId}/>
+      <div className="card">
+        <OptionBar
+          taskId={this.props.taskId}
+          projectId={this.props.projectId}
+        />
         <div className="card-content">
-            <h3> <span style={{ color: 'darkslategrey' }}>{this.state.taskName}</span></h3>
-            <p>Note: {this.state.taskNote}</p>
-
+          <h3>
+            {" "}
+            <span style={{ color: "darkslategrey" }}>
+              {this.state.taskName}
+            </span>
+          </h3>
+          <p>Note: {this.state.taskNote}</p>
         </div>
-        <ActionBar deleteItem={this.deleteItem} cancelItem={this.cancelItem} editItem={this.editItem}/>
+        <ActionBar
+          deleteItem={this.deleteItem}
+          cancelItem={this.cancelItem}
+          editItem={this.editItem}
+          completeItem={this.completeItem}
+        />
       </div>
     );
   }
