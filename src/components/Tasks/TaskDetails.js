@@ -14,7 +14,7 @@ class TaskDetail extends Component {
 
   deleteItem = async () => {
     await TaskManager.delete(this.props.taskId)
-    this.props.history.push("/")
+    this.props.history.push(`/projects/${this.props.projectId}/tasks`)
   };
   editItem = () => {
     this.props.history.push(`/tasks/${this.props.taskId}/edit`)
