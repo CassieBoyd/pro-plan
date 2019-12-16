@@ -18,6 +18,7 @@ import PurchaseDetail from "./components/Purchases/PurchaseDetails";
 import SupplyDetail from "./components/Supplies/SupplyDetails";
 import TaskEditForm from "./components/Tasks/TaskEditForm";
 import PurchaseEditForm from "./components/Purchases/PurchaseEditForm";
+import SupplyEditForm from "./components/Supplies/SupplyEditForm";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -64,7 +65,7 @@ class ApplicationViews extends Component {
         />
 
         {/* ******************TASK ROUTES************************ */}
-        
+
         {/* Display all tasks associated with a project */}
         <Route
           exact
@@ -106,7 +107,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          exact path="/projects/:projectId(\d+)/tasks/:taskId(\d+)/edit"
+          exact
+          path="/projects/:projectId(\d+)/tasks/:taskId(\d+)/edit"
           render={props => {
             return (
               <TaskEditForm
@@ -162,7 +164,8 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          exact path="/projects/:projectId(\d+)/purchases/:purchaseId(\d+)/edit"
+          exact
+          path="/projects/:projectId(\d+)/purchases/:purchaseId(\d+)/edit"
           render={props => {
             return (
               <PurchaseEditForm
@@ -209,6 +212,20 @@ class ApplicationViews extends Component {
             // Pass the supplyId to the SuppplyDetail Component
             return (
               <SupplyDetail
+                projectId={parseInt(props.match.params.projectId)}
+                supplyId={parseInt(props.match.params.supplyId)}
+                {...props}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/supplies/:supplyId(\d+)/edit"
+          render={props => {
+            return (
+              <SupplyEditForm
                 projectId={parseInt(props.match.params.projectId)}
                 supplyId={parseInt(props.match.params.supplyId)}
                 {...props}
