@@ -9,7 +9,6 @@ class TaskEditForm extends Component {
   state = {
     taskName: "",
     taskNote: "",
-    userId: "",
     complete: "",
     loadingStatus: true
   };
@@ -49,7 +48,6 @@ class TaskEditForm extends Component {
         taskName: task.taskName,
         taskNote: task.taskNote,
         complete: task.complete,
-        userId: Number(localStorage["userId"]),
         loadingStatus: false
       });
     });
