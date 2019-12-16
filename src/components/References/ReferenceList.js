@@ -29,7 +29,8 @@ class ReferenceList extends Component {
       <div className="container-cards">
           <OptionBar projectId={this.props.projectId}/>
         {this.state.references.map(reference => (
-          <ReferenceCard key={reference.id} reference={reference} {...this.props}/>
+          <ReferenceCard key={reference.id} reference={reference} {...this.props}           deleteReference={this.deleteReference}
+          />
         ))}
         <ActionBar addItem={this.addItem} />
       </div>

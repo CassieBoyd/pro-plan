@@ -13,6 +13,9 @@ import SupplyList from "./components/Supplies/SupplyList";
 import SupplyForm from "./components/Supplies/SupplyForm";
 import ReferenceList from "./components/References/ReferenceList";
 import ReferenceForm from "./components/References/ReferenceForm";
+import ReferenceDetail from "./components/References/ReferenceDetails";
+import PurchaseDetail from "./components/Purchases/PurchaseDetails";
+import SupplyDetail from "./components/Supplies/SupplyDetails";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -129,6 +132,21 @@ class ApplicationViews extends Component {
           }}
         />
 
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/purchases/:purchaseId(\d+)"
+          render={props => {
+            // Pass the purchaseId to the PurchaseDetail Component
+            return (
+              <PurchaseDetail
+                projectId={parseInt(props.match.params.projectId)}
+                purchaseId={parseInt(props.match.params.purchaseId)}
+                {...props}
+              />
+            );
+          }}
+        />
+
         {/* ******************SUPPLY ROUTES************************ */}
         {/* Display all supplies associated with a project */}
         <Route
@@ -157,6 +175,21 @@ class ApplicationViews extends Component {
           }}
         />
 
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/supplies/:supplyId(\d+)"
+          render={props => {
+            // Pass the supplyId to the SuppplyDetail Component
+            return (
+              <SupplyDetail
+                projectId={parseInt(props.match.params.projectId)}
+                supplyId={parseInt(props.match.params.supplyId)}
+                {...props}
+              />
+            );
+          }}
+        />
+
         {/* ******************REFERENCE ROUTES************************ */}
         {/* Display all references associated with a project */}
         <Route
@@ -180,6 +213,20 @@ class ApplicationViews extends Component {
               <ReferenceForm
                 {...props}
                 projectId={parseInt(props.match.params.projectId)}
+              />
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/projects/:projectId(\d+)/references/:referenceId(\d+)"
+          render={props => {
+            // Pass the referenceId to the ReferenceDetail Component
+            return (
+              <ReferenceDetail
+                projectId={parseInt(props.match.params.projectId)}
+                referenceId={parseInt(props.match.params.referenceId)}
+                {...props}
               />
             );
           }}

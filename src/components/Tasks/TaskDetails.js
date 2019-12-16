@@ -14,7 +14,7 @@ class TaskDetail extends Component {
 
   deleteItem = async () => {
     await TaskManager.delete(this.props.taskId)
-    this.props.history.push("/")
+    this.props.history.push(`/projects/${this.props.projectId}/tasks`)
   };
   editItem = () => {
     this.props.history.push(`/tasks/${this.props.taskId}/edit`)
@@ -38,7 +38,7 @@ class TaskDetail extends Component {
         <div className="card">
         <OptionBar taskId={this.props.taskId} projectId={this.props.projectId}/>
         <div className="card-content">
-            <h3>Task: <span style={{ color: 'darkslategrey' }}>{this.state.taskName}</span></h3>
+            <h3> <span style={{ color: 'darkslategrey' }}>{this.state.taskName}</span></h3>
             <p>Note: {this.state.taskNote}</p>
 
         </div>
