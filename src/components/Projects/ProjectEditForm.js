@@ -20,9 +20,6 @@ class ProjectEditForm extends Component {
       cancelItem = () => {
         this.props.history.push("/");
       };
-      editItem = () => {
-        this.props.project.id("/edit")
-      }
 
     handleFieldChange = evt => {
       const stateToChange = {}
@@ -63,7 +60,7 @@ class ProjectEditForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
-                <label htmlFor="projectlName">Project Name</label>
+                <label htmlFor="projectName">Project Name</label>
               <input
                 type="text"
                 required
@@ -85,7 +82,7 @@ class ProjectEditForm extends Component {
             </div>
           </fieldset>
         </form>
-        <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} editItem={this.editItem}/>
+        <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem}/>
         </>
       );
     }

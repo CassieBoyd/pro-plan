@@ -16,6 +16,7 @@ import ReferenceForm from "./components/References/ReferenceForm";
 import ReferenceDetail from "./components/References/ReferenceDetails";
 import PurchaseDetail from "./components/Purchases/PurchaseDetails";
 import SupplyDetail from "./components/Supplies/SupplyDetails";
+import TaskEditForm from "./components/Tasks/TaskEditForm";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -62,6 +63,7 @@ class ApplicationViews extends Component {
         />
 
         {/* ******************TASK ROUTES************************ */}
+        
         {/* Display all tasks associated with a project */}
         <Route
           exact
@@ -95,6 +97,18 @@ class ApplicationViews extends Component {
             // Pass the taskId to the taskDetailComponent
             return (
               <TaskDetail
+                projectId={parseInt(props.match.params.projectId)}
+                taskId={parseInt(props.match.params.taskId)}
+                {...props}
+              />
+            );
+          }}
+        />
+        <Route
+          exact path="/projects/:projectId(\d+)/tasks/:taskId(\d+)/edit"
+          render={props => {
+            return (
+              <TaskEditForm
                 projectId={parseInt(props.match.params.projectId)}
                 taskId={parseInt(props.match.params.taskId)}
                 {...props}
