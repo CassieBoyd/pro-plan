@@ -21,13 +21,13 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
-  update(EditedSupply) {
-    return fetch(`${remoteURL}/supplies/${EditedSupply.id}`, {
+  update(editedSupply) {
+    return fetch(`${remoteURL}/supplies/${editedSupply.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(EditedSupply)
+      body: JSON.stringify(editedSupply)
     }).then(data => data.json());
   }
 };
