@@ -17,7 +17,7 @@ class TaskDetail extends Component {
     this.props.history.push(`/projects/${this.props.projectId}/tasks`)
   };
   editItem = () => {
-    this.props.history.push(`/tasks/${this.props.taskId}/edit`)
+    this.props.history.push(`/projects/${this.props.projectId}/tasks/${this.props.taskId}/edit`)
   }
 
   componentDidMount(){
