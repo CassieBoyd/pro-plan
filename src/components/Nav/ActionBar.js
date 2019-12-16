@@ -33,9 +33,6 @@ class ActionBar extends Component {
                   <Button size="sm" variant="light" onClick={this.props.saveItem}>Save Icon</Button>
                 ) : null}
               </Col>
-              {/* <Button size="sm" variant="light">Pics</Button>
-            <Button size="sm" variant="light">Links</Button>
-            <Button size="sm" variant="light">Supplies</Button> */}
             </Row>
           </Container>
         </Navbar>
