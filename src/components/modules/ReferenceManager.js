@@ -21,13 +21,13 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
-  update(EditedReference) {
-    return fetch(`${remoteURL}/references/${EditedReference.id}`, {
+  update(editedReference) {
+    return fetch(`${remoteURL}/references/${editedReference.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(EditedReference)
+      body: JSON.stringify(editedReference)
     }).then(data => data.json());
   }
 };
