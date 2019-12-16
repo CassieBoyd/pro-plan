@@ -6,7 +6,7 @@ export default {
   },
   getAll() {
     const userId = JSON.parse(localStorage.getItem("credentials")) 
-    console.log(userId.id)
+    console.log("USER", userId.id)
    
     return fetch(`${remoteURL}/projects?userId=${userId.id}`).then(result => result.json());
   },
