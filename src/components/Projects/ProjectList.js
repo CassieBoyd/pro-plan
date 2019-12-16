@@ -24,7 +24,7 @@ class ProjectList extends Component {
 
   render() {
     console.log("Project List: Render");
-
+// Because they are included in the render method of ProjectList, both ProjectCard and ActionBar are considered children of ProjectList. 
     return (
       <div className="container-cards">
         {this.state.projects.map(project => (
