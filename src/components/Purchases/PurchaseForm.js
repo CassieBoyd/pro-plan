@@ -10,6 +10,8 @@ class PurchaseForm extends Component {
     purchaseName: "",
     purchaseNote: "",
     quantity: "",
+    cost: "",
+    url: "",
     purchased: false,
     loadingStatus: false
   };
