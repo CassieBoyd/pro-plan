@@ -94,6 +94,8 @@ class SupplyEditForm extends Component {
                 required
                 onChange={this.handleFieldChange}
                 id="quantity"
+                value={this.state.quantity}
+
               />
 
               <DropdownButton
