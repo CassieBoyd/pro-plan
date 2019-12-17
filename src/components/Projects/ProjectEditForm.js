@@ -10,7 +10,7 @@ class ProjectEditForm extends Component {
       dueDate: "",
       startDate: "",
       userId: "",
-      loadingStatus: true,
+      loadingStatus: true
     };
 
     saveItem = () => {
@@ -18,7 +18,7 @@ class ProjectEditForm extends Component {
         console.log("saving project stuff");
       };
       cancelItem = () => {
-        this.props.history.push("/");
+        this.props.history.push(`/projects/${this.props.match.params.projectId}`);
       };
 
     handleFieldChange = evt => {
