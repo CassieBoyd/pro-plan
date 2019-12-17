@@ -37,7 +37,7 @@ class LogIn extends Component {
     return (
       <form onSubmit={this.handleLogin}>
         <fieldset>
-          <h3>Login</h3>
+          <h3>Log In</h3>
           <div className="formgrid">
             <input
               onChange={this.handleFieldChange}

@@ -21,6 +21,7 @@ import PurchaseEditForm from "./components/Purchases/PurchaseEditForm";
 import SupplyEditForm from "./components/Supplies/SupplyEditForm";
 import ReferenceEditForm from "./components/References/ReferenceEditForm";
 import LogIn from "./components/Auth/LogIn";
+import Register from "./components/Auth/Register";
 class ApplicationViews extends Component {
   render() {
     return (
@@ -292,6 +293,8 @@ class ApplicationViews extends Component {
           }}
         />
 
+{/* **********************LOGIN********************************* */}
+
         <Route
           path="/LogIn"
           render={props => {
@@ -305,6 +308,16 @@ class ApplicationViews extends Component {
                   {...this.props}
                 />
               );
+            }
+          }}
+        />
+
+<Route
+          path="/register" render={props => {
+            if (this.props.user) {
+              return <Redirect to="/" />
+            } else {
+              return <Register setUser={this.props.setUser} {...props}{...this.props} />
             }
           }}
         />

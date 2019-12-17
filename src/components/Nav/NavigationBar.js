@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./NavigationBar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom"
+import Register from "../Auth/Register";
 
 class NavigationBar extends Component {
   render() {
@@ -19,15 +20,18 @@ class NavigationBar extends Component {
     );
     else {
       return (
-          <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
-              <span className="navbar-text">
-                  <ul className="nav nav-pills nav-fill">
-                      <li className="nav-item">
-                          <Link className="nav-link" to="/register">Register</Link>
-                      </li>
-                  </ul>
-              </span>
-          </nav>
+        <>
+        <header>
+        <Navbar bg="primary" variant fixed="sticky">
+          <Nav className="container">
+            <Nav.Link href="/">Logo</Nav.Link>
+            {/* <Nav.Link href="/LogIn">Log In</Nav.Link> */}
+
+          </Nav>
+        </Navbar>
+      </header>
+      <Register/>
+      </>
       )
   }
 

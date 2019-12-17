@@ -23,6 +23,12 @@ state = {
           user: this.isAuthenticated()
         });
       }
+
+      componentDidMount() {
+        this.setState({
+          user: this.isAuthenticated()
+        })
+      }
     
     render() {
         return (
