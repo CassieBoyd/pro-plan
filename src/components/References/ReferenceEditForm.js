@@ -88,6 +88,7 @@ class ReferenceEditForm extends Component {
                 required
                 onChange={this.handleFieldChange}
                 id="url"
+                value={this.state.url}
               />
             </div>
           </fieldset>
