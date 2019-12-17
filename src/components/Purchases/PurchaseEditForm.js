@@ -41,7 +41,7 @@ class PurchaseEditForm extends Component {
       purchaseNote: this.state.purchaseNote,
       purchased: this.state.purchased,
       url: this.state.url,
-      cost: this.state.url,
+      cost: this.state.cost,
       units: this.state.units,
       quantity: this.state.quantity,
       projectId: this.props.projectId
@@ -103,6 +103,7 @@ class PurchaseEditForm extends Component {
                 required
                 onChange={this.handleFieldChange}
                 id="quantity"
+                value={this.state.quantity}
               />
 
               <DropdownButton
@@ -138,6 +139,7 @@ class PurchaseEditForm extends Component {
                 required
                 onChange={this.handleFieldChange}
                 id="url"
+                value={this.state.url}
               />
               <label htmlFor="cost">Cost</label>
               <input
@@ -145,6 +147,7 @@ class PurchaseEditForm extends Component {
                 required
                 onChange={this.handleFieldChange}
                 id="cost"
+                value={this.state.cost}
               />
             </div>
           </fieldset>
