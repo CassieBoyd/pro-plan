@@ -35,4 +35,13 @@
   to {
     transform: rotate(360deg);
   }
+
+  
+}
+/* body {
+  background-color: rgb(188, 174, 206);
+} */
+
+.card {
+  background-color: transparent;
 }

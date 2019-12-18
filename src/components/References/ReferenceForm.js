@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReferenceManager from "../modules/ReferenceManager";
 import ActionBar from "../Nav/ActionBar";
+import { Button } from "react-bootstrap";
+import PhotoManager from "../modules/PhotoManager";
 
 // import './ReferenceForm.css'
 
@@ -9,8 +11,38 @@ class ReferenceForm extends Component {
     referenceName: "",
     referenceNote: "",
     url: "",
-    loadingStatus: false
+    stateToChange: null,
+    loadingStatus: false,
+    photoUrl: "",
+    type: "reference"
   };
+
+  fileSelectorHandler = event => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
+  };
+
+  fileUploadHandler = async e => {
+    console.log("UPLOAD");
+    e.preventDefault();
+    const files = this.state.selectedFile;
+    const data = new FormData();
+    data.append("file", files);
+    data.append("upload_preset", "lwhplhx3");
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/proplan/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
+    const file = await res.json();
+    this.setState({
+      photoUrl: file.secure_url
+    });
+  };
+
   //   Function that calls constructNewReference method on props passed into it.
   saveItem = () => {
     this.constructNewReference();
@@ -26,7 +58,7 @@ class ReferenceForm extends Component {
     this.setState(stateToChange);
   };
 
-  constructNewReference = () => {
+  constructNewReference = async () => {
     if (this.state.referenceName === "") {
       window.alert("Please input a Reference Name");
     } else {
@@ -35,13 +67,18 @@ class ReferenceForm extends Component {
         referenceName: this.state.referenceName.replace(/(\"|\')/g, "$1"),
         referenceNote: this.state.referenceNote.replace(/(\"|\')/g, "$1"),
         projectId: this.props.projectId,
-        url: this.state.url,
+        url: this.state.url
       };
 
       // Create the Reference and redirect user to Reference list
-      ReferenceManager.post(reference).then(() =>
+      const response = await ReferenceManager.post(reference)
+      const photo = {
+        type: this.state.type,
+        typeId: response.id,
+        photoUrl: this.state.photoUrl
+      }
+      await PhotoManager.post(photo)
         this.props.history.push(`/projects/${this.props.projectId}/references`)
-      );
     }
   };
 
@@ -59,7 +96,6 @@ class ReferenceForm extends Component {
                 id="referenceName"
                 placeholder="Reference Name"
               />
-
               <label htmlFor="referenceNote">Note</label>
               <input
                 type="text"
@@ -67,7 +103,6 @@ class ReferenceForm extends Component {
                 onChange={this.handleFieldChange}
                 id="referenceNote"
               />
- 
               <label htmlFor="url">Link</label>
               <input
                 type="text"
@@ -75,7 +110,21 @@ class ReferenceForm extends Component {
                 onChange={this.handleFieldChange}
                 id="url"
               />
-              
+              <input
+                accept="image/*"
+                id="contained-button-file"
+                type="file"
+                onChange={this.fileSelectorHandler}
+              />
+              <label htmlFor="contained-button-file">
+                <Button
+                  variant="contained"
+                  component="span"
+                  onClick={this.fileUploadHandler}>
+                  Upload
+                </Button>
+              </label>{" "}
+              <br />
             </div>
           </fieldset>
         </form>

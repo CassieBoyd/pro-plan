@@ -17,6 +17,7 @@ class ReferenceCard extends Component {
             <p>Note: {this.props.reference.referenceNote}</p>
           ) : null}
           <p>Link: <a href={this.props.reference.url}>URL</a></p>
+          <img src={this.props.reference.photoUrl}></img>
         </div>
         <Link to={`/projects/${this.props.projectId}/references/${this.props.reference.id}`}
           className="stretched-link"></Link>

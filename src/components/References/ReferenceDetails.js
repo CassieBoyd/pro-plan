@@ -4,13 +4,16 @@ import ReferenceManager from "../modules/ReferenceManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
 import {Link} from "react-router-dom"
+import PhotoManager from "../modules/PhotoManager";
+
 
 
 class ReferenceDetail extends Component {
   state = {
     referenceName: "",
     referenceNote: "",
-    url: ""
+    url: "",
+    photos: []
   };
 
   deleteItem = async () => {
@@ -21,17 +24,19 @@ class ReferenceDetail extends Component {
     this.props.history.push(`/projects/${this.props.projectId}/references/${this.props.referenceId}/edit`);
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log("ReferenceDetail: ComponentDidMount");
     //get(id) from ReferenceManager and hang on to the data; put it into state
-    ReferenceManager.get(this.props.referenceId).then(reference => {
+    const reference = await ReferenceManager.get(this.props.referenceId)
+      const photos = await PhotoManager.getAll("reference", this.props.referenceId)
       this.setState({
         referenceName: reference.referenceName,
         referenceNote: reference.referenceNote,
-        url: reference.url
+        url: reference.url,
+        photos: photos
       });
-    });
-  }
+    };
+
 
   render() {
     return (
@@ -49,6 +54,11 @@ class ReferenceDetail extends Component {
           </h3>
           <p>Note: {this.state.referenceNote}</p>
           <p>Link: <a href={this.state.url}>URL</a></p>
+          {this.state.photos.map(photo => (
+                      <img key={photo.id} src={photo.photoUrl}></img>
+
+          ))
+          }
 
         </div>
         <ActionBar
