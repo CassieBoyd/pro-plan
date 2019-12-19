@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./NavigationBar.css";
-import { Navbar, Row, Container, Col, Button } from "react-bootstrap";
+import "./ActionBar.css";
+import { Navbar, Row, Container, Col } from "react-bootstrap";
+import { FiPlus, FiTrash, FiCheck, FiEdit, FiX, FiSave } from "react-icons/fi"
 
 class ActionBar extends Component {
   render() {
@@ -10,26 +11,30 @@ class ActionBar extends Component {
           <Container className="container">
             <Row>
               <Col xs={2}>{this.props.completeItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.completeItem}>Complete</Button>
+                  <FiCheck className="icon" size="40px" onClick={this.props.completeItem}/>
                 ) : null}</Col>
+
               <Col xs={2}>{this.props.cancelItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.cancelItem}>Cancel Icon</Button>
+                  <FiX size="40px" className="icon" onClick={this.props.cancelItem}/>
                 ) : null}</Col>
+
               <Col xs={2}>{this.props.deleteItem ? (
-                  <li><Button size="sm" variant="light" onClick={this.props.deleteItem}>Delete Icon</Button></li>
+                  <FiTrash size="40px" className="icon" onClick={this.props.deleteItem}/>
                 ) : null}</Col>
+
               <Col xs={2}>
-                {/* <Button size="sm" variant="light" href="/tasks">X</Button> */}
                 {this.props.addItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.addItem} img src="src/Icons/plus.svg">Add Icon</Button>
+                  <FiPlus size="40px" className="icon" onClick={this.props.addItem}/>
                 ) : null}
               </Col>
+
               <Col xs={2}>{this.props.editItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.editItem}>Edit Icon</Button>
+                  <FiEdit className="icon" size="40px" onClick={this.props.editItem}/>
                 ) : null}</Col>
+
               <Col xs={2}>
                 {this.props.saveItem ? (
-                  <Button size="sm" variant="light" onClick={this.props.saveItem}>Save Icon</Button>
+                  <FiSave size="40px" className="icon" onClick={this.props.saveItem}/>
                 ) : null}
               </Col>
             </Row>

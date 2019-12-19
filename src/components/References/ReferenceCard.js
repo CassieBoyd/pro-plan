@@ -8,7 +8,7 @@ class ReferenceCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            Title:{" "}
+            {/* Title:{" "} */}
             <span className="card-referencename">
               {this.props.reference.referenceName}
             </span>

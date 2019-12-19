@@ -18,7 +18,7 @@ class ProjectEditForm extends Component {
     console.log("saving project stuff");
   };
   cancelItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}`);
+    this.props.history.push(`/projects/${this.props.match.params.projectId}`);
   };
 
   handleFieldChange = evt => {
