@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import ReferenceManager from "../modules/ReferenceManager";
-// import './ReferenceDetail.css'
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
 import {Link} from "react-router-dom"
 import PhotoManager from "../modules/PhotoManager";
-
+import "./ReferenceDetails.css"
 
 
 class ReferenceDetail extends Component {
