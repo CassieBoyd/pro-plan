@@ -12,7 +12,6 @@ state = {
 
     setUser = authObj => {
         localStorage.setItem("credentials", JSON.stringify(authObj))
-        localStorage.setItem("creduserentials", JSON.stringify(authObj))
         this.setState({
           user: this.isAuthenticated(),
         })
