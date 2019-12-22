@@ -34,5 +34,16 @@
   }
   to {
     transform: rotate(360deg);
-  }
+  }  
+}
+body {
+  background-color: rgb(205, 213, 248);
+}
+
+.card {
+  background-color: transparent;
+}
+
+.container-card {
+  margin-top: 100px;
 }

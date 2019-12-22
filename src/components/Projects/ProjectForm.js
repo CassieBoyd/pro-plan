@@ -9,6 +9,7 @@ class ProjectForm extends Component {
     dueDate: "",
     startDate: "",
     userId: Number(localStorage["userId"]),
+    url: "",
     loadingStatus: false
   };
   saveItem = () => {
@@ -25,6 +26,20 @@ class ProjectForm extends Component {
     this.setState(stateToChange);
   };
 
+  uploadWidget = () => {
+    window.cloudinary.openUploadWidget({ cloud_name: 'proplan', upload_preset: 'lwhplhx3', tags:['atag']},
+        (error, result) => {
+            // See what cloudinary returns
+            console.log(result);
+  
+            // Building the entire URL for the uploaded image using the data cloudinary returns
+            console.log("https://res.cloudinary.com/dveixyqzy/image/upload/v1576090193/" + result[0].public_id)
+  
+            // Just like other input forms, changing state so that the imageUrl property will contain the URL of the uploaded image
+            this.setState({url: `https://res.cloudinary.com/dveixyqzy/image/upload/v1576090193/${result[0].public_id}`})
+        });
+  }
+
   /*  Local method for validation, set loadingStatus, create Project      object, invoke the ProjectManager post method, and redirect to the full Project list
    */
   constructNewProject = () => {
@@ -36,7 +51,8 @@ class ProjectForm extends Component {
         name: this.state.ProjectName,
         dueDate: this.state.dueDate,
         startDate: this.state.startDate,
-        userId: this.state.userId
+        userId: this.state.userId,
+        url: this.state.url
       };
 
       // Create the Project and redirect user to Project list
@@ -78,6 +94,10 @@ class ProjectForm extends Component {
                 id="dueDate"
                 
               />
+              <img className="uploadImage" src={this.state.url} alt=""/>
+                <button onClick={this.uploadWidget.bind(this)} className="upload-button">
+                    Add Image
+                </button>
             </div>
             
           </fieldset>

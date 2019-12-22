@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./NavigationBar.css";
 import { Navbar, Nav} from "react-bootstrap";
+import { FiPackage, FiLink, FiImage, FiShoppingCart, FiList } from "react-icons/fi"
 
 class OptionBar extends Component {
   render() {
@@ -8,11 +9,16 @@ class OptionBar extends Component {
         <header>
         <Navbar bg="primary" variant fixed="sticky">
           <Nav className="container">
-            <Nav.Link href={`/projects/${this.props.projectId}/tasks`}>Tasks</Nav.Link>
-            <Nav.Link href={`/projects/${this.props.projectId}/purchases`}>Shop</Nav.Link>
-            <Nav.Link href="/">Pics</Nav.Link>
-            <Nav.Link href={`/projects/${this.props.projectId}/references`}>Refs</Nav.Link>
-            <Nav.Link href={`/projects/${this.props.projectId}/supplies`}>Supplies</Nav.Link>
+            
+            <Nav.Link href={`/projects/${this.props.projectId}/tasks`}><FiList className="icon" size="30px" /></Nav.Link>
+
+           <Nav.Link href={`/projects/${this.props.projectId}/purchases`}> <FiShoppingCart className="icon" size="30px" /></Nav.Link>
+
+            <Nav.Link href="/"><FiImage className="icon" size="30px" /></Nav.Link>
+
+            <Nav.Link href={`/projects/${this.props.projectId}/references`}><FiLink className="icon" size="30px" /></Nav.Link>
+
+            <Nav.Link href={`/projects/${this.props.projectId}/supplies`}><FiPackage className="icon" size="30px" /></Nav.Link>
           </Nav>
         </Navbar>
       </header>
