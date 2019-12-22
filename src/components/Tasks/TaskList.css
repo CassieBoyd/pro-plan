@@ -1,0 +1,11 @@
+.title {
+text-align: center;
+}
+.name {
+    width: 70%;
+    margin: 5% 5% 2.5% 5%}
+
+.note {
+    height: 100px;
+    width: 70%;
+    margin: 2.5% 5% 5% 5%}

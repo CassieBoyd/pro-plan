@@ -10,9 +10,9 @@ class TaskForm extends Component {
     complete: false,
     loadingStatus: false
   };
-//   Function that calls constructNewTask method on props passed into it.
+  //   Function that calls constructNewTask method on props passed into it.
   saveItem = () => {
-    this.constructNewTask()
+    this.constructNewTask();
     console.log("saving task");
   };
   cancelItem = () => {
@@ -29,15 +29,14 @@ class TaskForm extends Component {
    */
   constructNewTask = () => {
     if (this.state.taskName === "") {
-      window.alert("Please input a Task Name");
+      window.alert("Please input a Task");
     } else {
       this.setState({ loadingStatus: true });
       const task = {
-        taskName: this.state.taskName.replace(/(\"|\')/g,"\$1"),
-        taskNote: this.state.taskNote.replace(/(\"|\')/g,"\$1"),
+        taskName: this.state.taskName.replace(/(\"|\')/g, "$1"),
+        taskNote: this.state.taskNote.replace(/(\"|\')/g, "$1"),
         complete: this.state.complete,
-        projectId: this.props.projectId,
-
+        projectId: this.props.projectId
       };
 
       // Create the Task and redirect user to Task list
@@ -50,29 +49,26 @@ class TaskForm extends Component {
   render() {
     return (
       <>
+        <h3 className="title">Add A Task</h3>
         <form>
           <fieldset>
             <div className="formgrid">
-              <label htmlFor="taskName">Task Name</label>
-              <input
+              <label htmlFor="taskName">Task: </label>
+              <input className="name"
                 type="text"
                 required
                 onChange={this.handleFieldChange}
                 id="taskName"
-                placeholder="Task Name"
               />
+              <br></br>
 
-<label htmlFor="taskNote">Task Note</label>
-              <input
+              <label htmlFor="taskNote">Note:</label>
+              <input className="note"
                 type="text"
-                required
                 onChange={this.handleFieldChange}
                 id="taskNote"
-                
               />
-
             </div>
-            
           </fieldset>
         </form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-//import the components we will need
 import TaskCard from "./TaskCard";
 import TaskManager from "../modules/TaskManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
+import './TaskList.css'
 
+// Set state to an empty array
 class TaskList extends Component {
   state = {
     tasks: []
@@ -29,6 +30,7 @@ class TaskList extends Component {
     return (
       <div className="container-cards">
           <OptionBar projectId={this.props.projectId}/>
+          <h3 className="title">Tasks</h3>
         {this.state.tasks.map(task => (
           <TaskCard key={task.id} task={task} {...this.props}/>
         ))}
