@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom"
 
 
-// Style attribute has a conditional that checks the completion status of each task and applies the line-through textDecoration to completed tasks. The Link tag causes each Card to be a clickable link leading to that Card's details. Props are being passed down from TaskList.
+// Style attribute has a conditional that checks the completion status of each task and applies the line-through textDecoration to completed tasks. The stretched-link attribute causes each Card to be a clickable link leading to that Card's details via the Link tag. Props are being passed down from TaskList.
 class TaskCard extends Component {
   render() {
     console.log(this.props)

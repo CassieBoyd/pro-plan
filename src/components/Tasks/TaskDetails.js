@@ -26,7 +26,6 @@ class TaskDetail extends Component {
 
   componentDidMount() {
     console.log("TaskDetail: ComponentDidMount");
-    //get(id) from TaskManager and hang on to the data; put it into state
     TaskManager.get(this.props.taskId).then(task => {
       this.setState({
         taskName: task.taskName,
@@ -45,12 +44,11 @@ class TaskDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            {" "}
-            <span style={{ color: "darkslategrey" }}>
+            <span>
               {this.state.taskName}
             </span>
           </h3>
-          <p>Note: {this.state.taskNote}</p>
+          <p>{this.state.taskNote}</p>
         </div>
         <ActionBar
           deleteItem={this.deleteItem}

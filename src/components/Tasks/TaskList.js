@@ -32,7 +32,7 @@ class TaskList extends Component {
           <OptionBar projectId={this.props.projectId}/>
           <h3 className="title">Tasks</h3>
         {this.state.tasks.map(task => (
-          <TaskCard key={task.id} task={task} {...this.props}/>
+         <TaskCard key={task.id} task={task} {...this.props}/>
         ))}
         <ActionBar addItem={this.addItem} />
       </div>
