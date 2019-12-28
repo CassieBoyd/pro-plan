@@ -49,15 +49,16 @@ class PurchaseDetail extends Component {
         <div className="card-content">
           <h3>
             {/* Purchase:{" "} */}
-            <span style={{ color: "darkslategrey" }}>
+            <span>
               {this.state.purchaseName}
             </span>
           </h3>
-          <p>Note: {this.state.purchaseNote}</p>
+          {this.state.purchaseNote ? (
+            <p>Note: {this.state.purchaseNote}</p>
+          ) : null}
           <p>Link: <a href={this.state.url}>URL</a></p>
           <p>Cost: ${this.state.cost}</p>
-          <p>Units: {this.state.units}</p>
-          <p>Quantity: {this.state.quantity}</p>
+          <p>Quantity: {this.state.quantity} {this.state.units}</p>
 
 
         </div>
