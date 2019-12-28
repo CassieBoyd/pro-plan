@@ -8,7 +8,7 @@ export default {
     const userId = JSON.parse(localStorage.getItem("credentials")) 
     console.log("USER", userId.id)
    
-    return fetch(`${remoteURL}/projects?userId=${userId.id}`).then(result => result.json());
+    return fetch(`${remoteURL}/projects?userId=${userId.id}&_sort=dueDate&_order=asc`).then(result => result.json());
   },
   post(newProject) {
     return fetch(`${remoteURL}/projects`, {

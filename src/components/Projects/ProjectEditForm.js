@@ -34,7 +34,8 @@ class ProjectEditForm extends Component {
       name: this.state.projectName,
       dueDate: this.state.dueDate,
       startDate: this.state.startDate,
-      userId: this.state.userId
+      userId: this.state.userId,
+      complete: false
     };
 
     ProjectManager.update(editedProject).then(() =>
@@ -49,6 +50,7 @@ class ProjectEditForm extends Component {
         dueDate: project.dueDate,
         startDate: project.startDate,
         userId: Number(localStorage["userId"]),
+        complete: project.complete,
         loadingStatus: false
       });
     });

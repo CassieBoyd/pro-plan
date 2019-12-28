@@ -3,7 +3,7 @@ small {
   }
   
   header {
-    background-color:darkblue;
+    background-color: #505587;
     border: cornflowerblue solid 0px;
   }
   
@@ -18,7 +18,7 @@ small {
     margin-bottom: 0;
   }
   
-  nav .container li {
+  /* nav .container li {
     flex: 1;
     padding: 10px;
     text-align: center;
@@ -27,7 +27,7 @@ small {
     box-sizing: border-box;
     background-color: cornflowerblue;
     list-style-type: none;
-  }
+  } */
   
   nav .container a {
     color: black;
