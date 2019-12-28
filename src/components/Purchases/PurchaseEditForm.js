@@ -56,12 +56,12 @@ class PurchaseEditForm extends Component {
     PurchaseManager.get(this.props.match.params.purchaseId).then(purchase => {
       this.setState({
         purchaseName: purchase.purchaseName,
-        purchaseNote: purchase.purchaseNote,
+        purchaseNote: purchase.purchaseNote || "",
         purchased: purchase.purchased,
-        url: purchase.url,
-        cost: purchase.cost,
-        units: purchase.units,
-        quantity: purchase.quantity,
+        url: purchase.url || "",
+        cost: purchase.cost || "",
+        units: purchase.units || "",
+        quantity: purchase.quantity || "",
         loadingStatus: false
       });
     });
@@ -90,7 +90,6 @@ class PurchaseEditForm extends Component {
               <label htmlFor="purchaseNote">Note</label>
               <input
                 type="text"
-                required
                 className="form-control"
                 onChange={this.handleFieldChange}
                 id="purchaseNote"
