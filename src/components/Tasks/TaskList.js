@@ -3,7 +3,7 @@ import TaskCard from "./TaskCard";
 import TaskManager from "../modules/TaskManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import './TaskList.css'
+import '../../Pro-Plan.css'
 
 // Set state to an empty array
 class TaskList extends Component {

@@ -28,6 +28,7 @@ class PurchaseList extends Component {
     return (
       <div className="container-cards">
           <OptionBar projectId={this.props.projectId}/>
+          <h3 className="title">Purchases</h3>
         {this.state.purchases.map(purchase => (
           <PurchaseCard key={purchase.id} purchase={purchase} {...this.props}/>
         ))}

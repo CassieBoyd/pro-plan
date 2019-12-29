@@ -1,6 +1,5 @@
-.title {
+/* .title {
   text-align: center;
-  /* font-family: 'Neucha', cursive; */
 }
 .name {
   width: 90%;
@@ -11,9 +10,16 @@
   height: 100px;
   width: 90%;
   margin: 1.5% 5% 5% 5%;
-  position: 
 }
 
 label {
   margin-left: 10px;
 }
+
+.card {
+  border: 0;
+}
+
+.card-taskname {
+  margin-left: 10px;
+} */
