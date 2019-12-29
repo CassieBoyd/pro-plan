@@ -29,5 +29,14 @@ export default {
       },
       body: JSON.stringify(editedPurchase)
     }).then(data => data.json());
+  },
+  patch(editedPurchase) {
+    return fetch(`${remoteURL}/purchases/${editedPurchase.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedPurchase)
+    }).then(data => data.json());
   }
 };

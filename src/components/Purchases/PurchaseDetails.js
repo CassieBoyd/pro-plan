@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
-// import './PurchaseDetail.css'
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import {Link} from "react-router-dom"
 
 
 class PurchaseDetail extends Component {
@@ -13,7 +11,8 @@ class PurchaseDetail extends Component {
     url: "",
     cost: "",
     units: "",
-    quantity: ""
+    quantity: "",
+    complete: false
   };
 
   deleteItem = async () => {
@@ -22,6 +21,10 @@ class PurchaseDetail extends Component {
   };
   editItem = () => {
     this.props.history.push(`/projects/${this.props.projectId}/purchases/${this.props.purchaseId}/edit`);
+  };
+  completeItem = async () => {
+    await PurchaseManager.patch({ id: this.props.purchaseId, complete: true })
+    this.props.history.push(`/projects/${this.props.projectId}/purchases`)
   };
 
   componentDidMount() {
@@ -34,7 +37,8 @@ class PurchaseDetail extends Component {
         url: purchase.url,
         cost: purchase.cost,
         units: purchase.units,
-        quantity: purchase.quantity
+        quantity: purchase.quantity,
+        complete: purchase.complete
       });
     });
   }
@@ -64,7 +68,7 @@ class PurchaseDetail extends Component {
         </div>
         <ActionBar
           deleteItem={this.deleteItem}
-          cancelItem={this.cancelItem}
+          completeItem={this.completeItem}
           editItem={this.editItem}
         />
         
