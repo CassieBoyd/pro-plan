@@ -24,7 +24,7 @@ class PurchaseEditForm extends Component {
     console.log("saving purchase stuff");
   };
   cancelItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}/purchases`);
+    this.props.history.push(`/projects/${this.props.projectId}/purchases/${this.props.purchaseId}`);
   };
 
   handleFieldChange = evt => {
@@ -48,7 +48,7 @@ class PurchaseEditForm extends Component {
     };
 
     PurchaseManager.update(editedPurchase).then(() =>
-      this.props.history.push(`/projects/${this.props.projectId}/purchases`)
+      this.props.history.push(`/projects/${this.props.projectId}/purchases/${this.props.purchaseId}`)
     );
   };
 
