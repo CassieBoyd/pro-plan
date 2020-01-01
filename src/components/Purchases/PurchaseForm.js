@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
 import ActionBar from "../Nav/ActionBar";
-import { DropdownButton, Dropdown, Form, Row } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form, Row, Col } from "react-bootstrap";
 import OptionBar from "../Nav/OptionBar";
 
 // import './PurchaseForm.css'
@@ -88,9 +88,10 @@ class PurchaseForm extends Component {
               id="purchaseNote"
             />
           
-          <Form.Label>Quantity:</Form.Label>
 <Row>
-          <Form.Control
+  <Col>
+          <Form.Label>Quantity:</Form.Label>
+          <div style={{display:"flex"}}><Form.Control
             type="text"
             className="quantity"
             placeholder="Quantity"
@@ -124,6 +125,18 @@ class PurchaseForm extends Component {
               pr
             </Dropdown.Item>
           </DropdownButton>
+          </div>
+          </Col>
+
+<Col>
+          <Form.Label>Cost:</Form.Label>
+          <Form.Control
+            type="text"
+            className="cost"
+            onChange={this.handleFieldChange}
+            id="cost"
+          />
+          </Col>
           </Row>
           </Form.Group>
 
@@ -135,13 +148,7 @@ class PurchaseForm extends Component {
             id="url"
             placeholder="URL"
           />
-          <Form.Label>Cost:</Form.Label>
-          <Form.Control
-            type="text"
-            className="cost"
-            onChange={this.handleFieldChange}
-            id="cost"
-          />
+          
         </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
