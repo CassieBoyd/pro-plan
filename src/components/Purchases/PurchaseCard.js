@@ -8,8 +8,7 @@ class PurchaseCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            {" "}
-            <span className="card-purchasename">
+            <span style={this.props.purchase.complete ? {textDecoration: "line-through"} : null} className="card-purchasename">
               {this.props.purchase.purchaseName}
             </span>
           </h3>
