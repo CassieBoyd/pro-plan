@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TaskManager from "../modules/TaskManager";
 import ActionBar from "../Nav/ActionBar";
 import { Form } from "react-bootstrap";
+import OptionBar from "../Nav/OptionBar";
 // import './TaskForm.css'
 
 class TaskForm extends Component {
@@ -48,6 +49,10 @@ class TaskForm extends Component {
   render() {
     return (
       <>
+      <OptionBar
+              taskId={this.props.taskId}
+              projectId={this.props.projectId}
+            />
         <h3 className="title">Add A Task</h3>
         <Form>
           <Form.Group>

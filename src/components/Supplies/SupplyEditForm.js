@@ -21,7 +21,7 @@ class SupplyEditForm extends Component {
     console.log("saving supply stuff");
   };
   cancelItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}/supplies`);
+    this.props.history.push(`/projects/${this.props.projectId}/supplies/${this.props.supplyId}`);
   };
 
   handleFieldChange = evt => {
@@ -42,7 +42,7 @@ class SupplyEditForm extends Component {
     };
 
     SupplyManager.update(editedSupply).then(() =>
-      this.props.history.push(`/projects/${this.props.projectId}/supplies`)
+      this.props.history.push(`/projects/${this.props.projectId}/supplies/${this.props.supplyId}`)
     );
   };
 

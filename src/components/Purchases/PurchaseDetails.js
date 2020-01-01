@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
-// import './PurchaseDetail.css'
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import {Link} from "react-router-dom"
 
 
 class PurchaseDetail extends Component {
@@ -13,7 +11,8 @@ class PurchaseDetail extends Component {
     url: "",
     cost: "",
     units: "",
-    quantity: ""
+    quantity: "",
+    complete: false
   };
 
   deleteItem = async () => {
@@ -22,6 +21,10 @@ class PurchaseDetail extends Component {
   };
   editItem = () => {
     this.props.history.push(`/projects/${this.props.projectId}/purchases/${this.props.purchaseId}/edit`);
+  };
+  completeItem = async () => {
+    await PurchaseManager.patch({ id: this.props.purchaseId, complete: true })
+    this.props.history.push(`/projects/${this.props.projectId}/purchases`)
   };
 
   componentDidMount() {
@@ -34,7 +37,8 @@ class PurchaseDetail extends Component {
         url: purchase.url,
         cost: purchase.cost,
         units: purchase.units,
-        quantity: purchase.quantity
+        quantity: purchase.quantity,
+        complete: purchase.complete
       });
     });
   }
@@ -49,21 +53,22 @@ class PurchaseDetail extends Component {
         <div className="card-content">
           <h3>
             {/* Purchase:{" "} */}
-            <span style={{ color: "darkslategrey" }}>
+            <span>
               {this.state.purchaseName}
             </span>
           </h3>
-          <p>Note: {this.state.purchaseNote}</p>
+          {this.state.purchaseNote ? (
+            <p>Note: {this.state.purchaseNote}</p>
+          ) : null}
           <p>Link: <a href={this.state.url}>URL</a></p>
           <p>Cost: ${this.state.cost}</p>
-          <p>Units: {this.state.units}</p>
-          <p>Quantity: {this.state.quantity}</p>
+          <p>Quantity: {this.state.quantity} {this.state.units}</p>
 
 
         </div>
         <ActionBar
           deleteItem={this.deleteItem}
-          cancelItem={this.cancelItem}
+          completeItem={this.completeItem}
           editItem={this.editItem}
         />
         

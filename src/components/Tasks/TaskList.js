@@ -3,7 +3,7 @@ import TaskCard from "./TaskCard";
 import TaskManager from "../modules/TaskManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import './TaskList.css'
+import '../../Pro-Plan.css'
 
 // Set state to an empty array
 class TaskList extends Component {
@@ -32,7 +32,7 @@ class TaskList extends Component {
           <OptionBar projectId={this.props.projectId}/>
           <h3 className="title">Tasks</h3>
         {this.state.tasks.map(task => (
-          <TaskCard key={task.id} task={task} {...this.props}/>
+         <TaskCard key={task.id} task={task} {...this.props}/>
         ))}
         <ActionBar addItem={this.addItem} />
       </div>

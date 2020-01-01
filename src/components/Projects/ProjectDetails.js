@@ -40,7 +40,7 @@ class ProjectDetail extends Component {
         <div className="card">
         <OptionBar projectId={this.props.projectId}/>
         <div className="card-content">
-            <h3>Project: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <h3><span>{this.state.name}</span></h3>
             <p>Due Date: {this.state.dueDate}</p>
             <p>Start Date: {this.state.startDate}</p>
 

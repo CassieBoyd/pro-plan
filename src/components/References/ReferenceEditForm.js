@@ -18,7 +18,7 @@ class ReferenceEditForm extends Component {
     console.log("saving reference stuff");
   };
   cancelItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}/references`);
+    this.props.history.push(`/projects/${this.props.projectId}/references/${this.props.referenceId}`);
   };
 
   handleFieldChange = evt => {
@@ -38,7 +38,7 @@ class ReferenceEditForm extends Component {
     };
 
     ReferenceManager.update(editedReference).then(() =>
-      this.props.history.push(`/projects/${this.props.projectId}/references`)
+      this.props.history.push(`/projects/${this.props.projectId}/references/${this.props.referenceId}`)
     );
   };
 

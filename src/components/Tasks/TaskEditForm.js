@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TaskManager from "../modules/TaskManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
+import { Form } from "react-bootstrap";
 // import "./TaskEditForm.css"
 
 class TaskEditForm extends Component {
@@ -18,7 +19,7 @@ class TaskEditForm extends Component {
     console.log("saving task stuff");
   };
   cancelItem = () => {
-    this.props.history.push(`/projects/${this.props.projectId}/tasks`);
+    this.props.history.push(`/projects/${this.props.projectId}/tasks/${this.props.taskId}`);
   };
 
   handleFieldChange = evt => {
@@ -38,7 +39,7 @@ class TaskEditForm extends Component {
     };
 
     TaskManager.update(editedTask).then(() =>
-      this.props.history.push(`/projects/${this.props.projectId}/tasks`)
+      this.props.history.push(`/projects/${this.props.projectId}/tasks/${this.props.taskId}`)
     );
   };
 
@@ -56,35 +57,37 @@ class TaskEditForm extends Component {
   render() {
     return (
       <>
-        <form>
-          <fieldset>
-            <div className="formgrid">
-              <OptionBar
-                taskId={this.props.taskId}
-                projectId={this.props.projectId}
-              />
-              <label htmlFor="taskName">Task</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="taskName"
-                value={this.state.taskName}
-              />
+            <OptionBar
+              taskId={this.props.taskId}
+              projectId={this.props.projectId}
+            />
+        <Form>
+          <Form.Group>
 
-              <label htmlFor="taskNote">Note</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="taskNote"
-                value={this.state.taskNote}
-              />
-            </div>
-          </fieldset>
-        </form>
+            <Form.Label>Task:</Form.Label>
+            <Form.Control
+              type="text"
+              required
+              className="name"
+              onChange={this.handleFieldChange}
+              id="editedTaskName"
+              value={this.state.taskName}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Note:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
+              required
+              className="note"
+              onChange={this.handleFieldChange}
+              id="editedTaskNote"
+              value={this.state.taskNote}
+            />
+          </Form.Group>
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );
