@@ -34,8 +34,8 @@ class PurchaseForm extends Component {
   /*  Local method for validation, set loadingStatus, create Purchase      object, invoke the PurchaseManager post method, and redirect to the full Purchase list
    */
   constructNewPurchase = () => {
-    if (this.state.purchaseName === "") {
-      window.alert("Please input a Purchase Name");
+    if (this.state.purchaseName === "" || this.state.cost === "") {
+      window.alert("Please input an item and price");
     } else {
       this.setState({ loadingStatus: true });
       const purchase = {
