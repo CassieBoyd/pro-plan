@@ -64,7 +64,7 @@ class PurchaseForm extends Component {
           projectId={this.props.projectId}
         />
         <h3 className="title">Add A Purchase</h3>
-        <Form>
+        <Form style={{overflow: "scroll"}}>
           <Form.Group>
             <Form.Label>Item:</Form.Label>
             <input
@@ -86,18 +86,21 @@ class PurchaseForm extends Component {
               className="note"
               onChange={this.handleFieldChange}
               id="purchaseNote"
-            />
+              />
+              </Form.Group>
           
 <Row>
   <Col>
+          
           <Form.Label>Quantity:</Form.Label>
           <div style={{display:"flex"}}><Form.Control
             type="text"
             className="quantity"
-            placeholder="Quantity"
+            placeholder="Qty."
             onChange={this.handleFieldChange}
             id="quantity"
-          />
+            />
+            
 
           <DropdownButton
             id="dropdown-basic-button"
@@ -135,10 +138,10 @@ class PurchaseForm extends Component {
             className="cost"
             onChange={this.handleFieldChange}
             id="cost"
+            placeholder="$"
           />
           </Col>
           </Row>
-          </Form.Group>
 
           <Form.Label>Link:</Form.Label>
           <Form.Control
