@@ -70,7 +70,7 @@ class TaskEditForm extends Component {
               required
               className="name"
               onChange={this.handleFieldChange}
-              id="editedTaskName"
+              id="taskName"
               value={this.state.taskName}
             />
           </Form.Group>
@@ -83,7 +83,7 @@ class TaskEditForm extends Component {
               required
               className="note"
               onChange={this.handleFieldChange}
-              id="editedTaskNote"
+              id="taskNote"
               value={this.state.taskNote}
             />
           </Form.Group>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import { DropdownButton, Dropdown, Form } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form, Row, Col } from "react-bootstrap";
 
 // import "./PurchaseEditForm.css"
 
@@ -98,10 +98,13 @@ class PurchaseEditForm extends Component {
                 value={this.state.purchaseNote}
               />
               </Form.Group>
-
+<Row>
+  <Col>
               <Form.Label>Quantity:</Form.Label>
+              <div style={{display:"flex"}}>
               <Form.Control
                 type="text"
+                className="quantity"
                 required
                 onChange={this.handleFieldChange}
                 id="quantity"
@@ -134,20 +137,27 @@ class PurchaseEditForm extends Component {
                   pr
                 </Dropdown.Item>
               </DropdownButton>
+              </div>
+              </Col>
 
-              <label htmlFor="cost">Cost</label>
-              <input
+<Col>
+              <Form.Label>Cost</Form.Label>
+              <Form.Control
                 type="text"
+                className="cost"
                 required
                 onChange={this.handleFieldChange}
                 id="cost"
                 value={this.state.cost}
               />
+              </Col>
+              </Row>
               
 
-              <label htmlFor="url">Link</label>
-              <input
+              <Form.Label>Link</Form.Label>
+              <Form.Control
                 type="text"
+                className="link"
                 required
                 onChange={this.handleFieldChange}
                 id="url"
