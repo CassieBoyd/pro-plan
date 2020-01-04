@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import ReferenceManager from "../modules/ReferenceManager";
 import ActionBar from "../Nav/ActionBar";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import PhotoManager from "../modules/PhotoManager";
 import OptionBar from "../Nav/OptionBar";
-
-// import './ReferenceForm.css'
+import "../../Pro-Plan.css";
 
 class ReferenceForm extends Component {
   state = {
@@ -129,23 +128,19 @@ class ReferenceForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="url"
+              placeholder="URL"
             />
           </Form.Group>
 
           <Form.Group>
+          <Form.Label>Upload an image:</Form.Label>
             <Form.Control
+              className="uploadPhoto"
               accept="image/*"
               id="contained-button-file"
               type="file"
               onChange={this.fileSelectorHandler}
             />
-
-            {/* <Button
-                variant="secondary"
-                component="span"
-                onClick={this.fileUploadHandler}>
-                Upload
-              </Button> */}
           </Form.Group>
           <br />
         </Form>

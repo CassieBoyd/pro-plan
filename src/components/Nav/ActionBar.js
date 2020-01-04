@@ -12,7 +12,7 @@ class ActionBar extends Component {
             display: "flex",
             justifyContent: "space-around"
           }}
-          bg="primary"
+          bg="secondary"
           variant
           fixed="bottom">
           {/* <Container className="container"> */}

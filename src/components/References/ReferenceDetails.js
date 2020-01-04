@@ -4,7 +4,7 @@ import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
 import {Link} from "react-router-dom"
 import PhotoManager from "../modules/PhotoManager";
-import "./ReferenceDetails.css"
+import '../../Pro-Plan.css'
 
 
 class ReferenceDetail extends Component {
