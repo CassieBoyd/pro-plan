@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
 import ActionBar from "../Nav/ActionBar";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form, Row, Col } from "react-bootstrap";
+import OptionBar from "../Nav/OptionBar";
 
 // import './PurchaseForm.css'
 
@@ -33,8 +34,8 @@ class PurchaseForm extends Component {
   /*  Local method for validation, set loadingStatus, create Purchase      object, invoke the PurchaseManager post method, and redirect to the full Purchase list
    */
   constructNewPurchase = () => {
-    if (this.state.purchaseName === "") {
-      window.alert("Please input a Purchase Name");
+    if (this.state.purchaseName === "" || this.state.cost === "") {
+      window.alert("Please input an item and price");
     } else {
       this.setState({ loadingStatus: true });
       const purchase = {
@@ -58,63 +59,101 @@ class PurchaseForm extends Component {
   render() {
     return (
       <>
-        <form>
-          <fieldset>
-            <div className="formgrid">
-              <label htmlFor="purchaseName">Item</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="purchaseName"
-                placeholder="Purchase Name"
-              />
+        <OptionBar
+          taskId={this.props.taskId}
+          projectId={this.props.projectId}
+        />
+        <h3 className="title">Add A Purchase</h3>
+        <Form style={{overflow: "scroll"}}>
+          <Form.Group>
+            <Form.Label>Item:</Form.Label>
+            <Form.Control
+              type="text"
+              required
+              className="name"
+              onChange={this.handleFieldChange}
+              id="purchaseName"
+              placeholder="Item"
+            />
+          </Form.Group>
 
-              <label htmlFor="purchaseNote">Note</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="purchaseNote"
+          <Form.Group>
+            <Form.Label>Note:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
+              placeholder="Purchase Notes"
+              className="note"
+              onChange={this.handleFieldChange}
+              id="purchaseNote"
               />
+              </Form.Group>
+          
+<Row>
+  <Col>
+          
+          <Form.Label>Quantity:</Form.Label>
+          <div style={{display:"flex"}}>
+            <Form.Control
+            type="text"
+            className="quantity"
+            placeholder="Qty."
+            onChange={this.handleFieldChange}
+            id="quantity"
+            />
+            
 
-              <label htmlFor="quantity">Quantity</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="quantity"
-              />
+          <DropdownButton
+            id="dropdown-basic-button"
+            title={this.state.units ? this.state.units : "Units"}
+            value={this.state.units}>
+            <Dropdown.Item onSelect={() => this.setState({ units: "ea" })}>
+              ea
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "in" })}>
+              in
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "yd" })}>
+              yd
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "ft" })}>
+              ft
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "gal" })}>
+              gal
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "pt" })}>
+              pt
+            </Dropdown.Item>
+            <Dropdown.Item onSelect={() => this.setState({ units: "pr" })}>
+              pr
+            </Dropdown.Item>
+          </DropdownButton>
+          </div>
+          </Col>
 
+<Col>
+          <Form.Label>Cost:</Form.Label>
+          <Form.Control
+            type="text"
+            className="cost"
+            onChange={this.handleFieldChange}
+            id="cost"
+            placeholder="$"
+          />
+          </Col>
+          </Row>
 
-              <DropdownButton id="dropdown-basic-button" title={this.state.units ? this.state.units : "Units"} value={this.state.units} >
-                <Dropdown.Item onSelect={()=>this.setState({units:"ea"})}>ea</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"in"})}>in</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"yd"})}>yd</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"ft"})}>ft</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"gal"})}>gal</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"pt"})}>pt</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"pr"})}>pr</Dropdown.Item>
-                </DropdownButton>
-
-              
-              <label htmlFor="url">Link</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="url"
-              />
-              <label htmlFor="cost">Cost</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="cost"
-              />
-            </div>
-          </fieldset>
-        </form>
+          <Form.Label>Link:</Form.Label>
+          <Form.Control
+            type="text"
+            className="link"
+            onChange={this.handleFieldChange}
+            id="url"
+            placeholder="URL"
+          />
+          
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );

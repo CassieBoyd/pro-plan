@@ -52,7 +52,6 @@ class PurchaseDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            {/* Purchase:{" "} */}
             <span>
               {this.state.purchaseName}
             </span>
@@ -60,7 +59,9 @@ class PurchaseDetail extends Component {
           {this.state.purchaseNote ? (
             <p>Note: {this.state.purchaseNote}</p>
           ) : null}
+          {this.state.purchaseUrl ? (
           <p>Link: <a href={this.state.url}>URL</a></p>
+          ) : null}
           <p>Cost: ${this.state.cost}</p>
           <p>Quantity: {this.state.quantity} {this.state.units}</p>
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PurchaseManager from "../modules/PurchaseManager";
 import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form, Row, Col } from "react-bootstrap";
 
 // import "./PurchaseEditForm.css"
 
@@ -70,35 +70,41 @@ class PurchaseEditForm extends Component {
   render() {
     return (
       <>
-        <form>
-          <fieldset>
-            <div className="formgrid">
               <OptionBar
                 purchaseId={this.props.purchaseId}
                 projectId={this.props.projectId}
-              />
-              <label htmlFor="purchaseName">Item</label>
-              <input
+                />
+              <Form style={{overflow: "scroll"}}>
+                <Form.Group>
+              <Form.Label>Item:</Form.Label>
+              <Form.Control
                 type="text"
                 required
-                className="form-control"
+                className="name"
                 onChange={this.handleFieldChange}
                 id="purchaseName"
                 value={this.state.purchaseName}
               />
+              </Form.Group>
 
-              <label htmlFor="purchaseNote">Note</label>
-              <input
-                type="text"
-                className="form-control"
+<Form.Group>
+              <Form.Label>Note:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows="3"
+                className="note"
                 onChange={this.handleFieldChange}
                 id="purchaseNote"
                 value={this.state.purchaseNote}
               />
-
-              <label htmlFor="quantity">Quantity</label>
-              <input
+              </Form.Group>
+<Row>
+  <Col>
+              <Form.Label>Quantity:</Form.Label>
+              <div style={{display:"flex"}}>
+              <Form.Control
                 type="text"
+                className="quantity"
                 required
                 onChange={this.handleFieldChange}
                 id="quantity"
@@ -131,26 +137,34 @@ class PurchaseEditForm extends Component {
                   pr
                 </Dropdown.Item>
               </DropdownButton>
+              </div>
+              </Col>
 
-              <label htmlFor="url">Link</label>
-              <input
+<Col>
+              <Form.Label>Cost</Form.Label>
+              <Form.Control
                 type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="url"
-                value={this.state.url}
-              />
-              <label htmlFor="cost">Cost</label>
-              <input
-                type="text"
+                className="cost"
                 required
                 onChange={this.handleFieldChange}
                 id="cost"
                 value={this.state.cost}
               />
-            </div>
-          </fieldset>
-        </form>
+              </Col>
+              </Row>
+              
+
+              <Form.Label>Link</Form.Label>
+              <Form.Control
+                type="text"
+                className="link"
+                required
+                onChange={this.handleFieldChange}
+                id="url"
+                value={this.state.url}
+              />
+          
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );
