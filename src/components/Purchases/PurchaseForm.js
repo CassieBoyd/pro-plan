@@ -67,7 +67,7 @@ class PurchaseForm extends Component {
         <Form style={{overflow: "scroll"}}>
           <Form.Group>
             <Form.Label>Item:</Form.Label>
-            <input
+            <Form.Control
               type="text"
               required
               className="name"
@@ -93,7 +93,8 @@ class PurchaseForm extends Component {
   <Col>
           
           <Form.Label>Quantity:</Form.Label>
-          <div style={{display:"flex"}}><Form.Control
+          <div style={{display:"flex"}}>
+            <Form.Control
             type="text"
             className="quantity"
             placeholder="Qty."

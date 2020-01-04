@@ -74,10 +74,10 @@ class PurchaseEditForm extends Component {
                 purchaseId={this.props.purchaseId}
                 projectId={this.props.projectId}
                 />
-              <Form>
+              <Form style={{overflow: "scroll"}}>
                 <Form.Group>
               <Form.Label>Item:</Form.Label>
-              <input
+              <Form.Control
                 type="text"
                 required
                 className="name"
@@ -97,9 +97,10 @@ class PurchaseEditForm extends Component {
                 id="purchaseNote"
                 value={this.state.purchaseNote}
               />
+              </Form.Group>
 
-              <label htmlFor="quantity">Quantity</label>
-              <input
+              <Form.Label>Quantity:</Form.Label>
+              <Form.Control
                 type="text"
                 required
                 onChange={this.handleFieldChange}
@@ -142,8 +143,8 @@ class PurchaseEditForm extends Component {
                 id="cost"
                 value={this.state.cost}
               />
-              </Form.Group>
               
+
               <label htmlFor="url">Link</label>
               <input
                 type="text"
