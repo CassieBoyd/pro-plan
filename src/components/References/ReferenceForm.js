@@ -3,6 +3,7 @@ import ReferenceManager from "../modules/ReferenceManager";
 import ActionBar from "../Nav/ActionBar";
 import { Button } from "react-bootstrap";
 import PhotoManager from "../modules/PhotoManager";
+import OptionBar from "../Nav/OptionBar";
 
 // import './ReferenceForm.css'
 
@@ -85,6 +86,10 @@ class ReferenceForm extends Component {
   render() {
     return (
       <>
+      <OptionBar
+              taskId={this.props.taskId}
+              projectId={this.props.projectId}
+            />
         <form>
           <fieldset>
             <div className="formgrid">
