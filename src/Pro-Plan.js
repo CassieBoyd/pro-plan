@@ -20,6 +20,7 @@ state = {
 
       clearUser = () => {
         localStorage.removeItem("credentials")
+        localStorage.removeItem("userId")
         this.setState({
           user: this.isAuthenticated()
         });

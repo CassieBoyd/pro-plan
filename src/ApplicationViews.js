@@ -24,14 +24,19 @@ import LogIn from "./components/Auth/LogIn";
 import Register from "./components/Auth/Register";
 class ApplicationViews extends Component {
   render() {
+
     return (
       <React.Fragment>
         <Route
           exact
           path="/"
           render={props => {
+            if (localStorage["userId"]) {
             return <ProjectList {...props} />;
-          }}
+          } else {
+            return <Redirect to="/login" />
+          }
+        }}
         />
         <Route
           exact
