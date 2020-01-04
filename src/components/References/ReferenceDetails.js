@@ -51,8 +51,12 @@ class ReferenceDetail extends Component {
               {this.state.referenceName}
             </span>
           </h3>
-          <p>Note: {this.state.referenceNote}</p>
-          <p>Link: <a href={this.state.url}>URL</a></p>
+          {this.state.referenceNote ? (
+            <p>Note: {this.state.referenceNote}</p>
+          ) : null}
+          {this.state.url ? (
+            <p>Link: <a href={this.state.url}>URL</a></p>
+          ) : null}
           {this.state.photos.map(photo => (
                       <img key={photo.id} src={photo.photoUrl}></img>
 

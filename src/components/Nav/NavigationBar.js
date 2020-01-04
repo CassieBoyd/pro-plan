@@ -21,15 +21,6 @@ class NavigationBar extends Component {
     else {
       return (
         <>
-        {/* <header>
-        <Navbar bg="primary" variant fixed="sticky">
-          <Nav className="container">
-            <Nav.Link href="/">Logo</Nav.Link>
-            <Nav.Link href="/LogIn">Log In</Nav.Link>
-
-          </Nav>
-        </Navbar>
-      </header> */}
       <Register/>
       </>
       )

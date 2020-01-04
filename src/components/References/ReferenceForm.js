@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReferenceManager from "../modules/ReferenceManager";
 import ActionBar from "../Nav/ActionBar";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import PhotoManager from "../modules/PhotoManager";
 import OptionBar from "../Nav/OptionBar";
 
@@ -93,7 +93,7 @@ class ReferenceForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
-              <label htmlFor="referenceName">Title</label>
+              <Form.Label>Title</Form.Label>
               <input
                 type="text"
                 required
