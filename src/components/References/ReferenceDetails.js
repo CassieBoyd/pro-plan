@@ -16,6 +16,11 @@ class ReferenceDetail extends Component {
   };
 
   deleteItem = async () => {
+    const referencePhoto = await PhotoManager.getAll("reference", this.props.referenceId)
+    console.log(referencePhoto)
+    if(referencePhoto.length > 0) {
+      await PhotoManager.delete(referencePhoto[0].id)
+    }
     await ReferenceManager.delete(this.props.referenceId);
     this.props.history.push(`/projects/${this.props.projectId}/references`);
   };

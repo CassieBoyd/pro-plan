@@ -24,9 +24,8 @@ class ReferenceForm extends Component {
     });
   };
 
-  fileUploadHandler = async e => {
+  fileUploadHandler = async () => {
     console.log("UPLOAD");
-    e.preventDefault();
     const files = this.state.selectedFile;
     const data = new FormData();
     data.append("file", files);
@@ -45,8 +44,11 @@ class ReferenceForm extends Component {
   };
 
   //   Function that calls constructNewReference method on props passed into it.
-  saveItem = () => {
-    this.constructNewReference();
+  saveItem = async () => {
+    if (this.state.selectedFile) {
+      await this.fileUploadHandler();
+    }
+    await this.constructNewReference();
     console.log("saving reference");
   };
   cancelItem = () => {
@@ -72,67 +74,81 @@ class ReferenceForm extends Component {
       };
 
       // Create the Reference and redirect user to Reference list
-      const response = await ReferenceManager.post(reference)
-      const photo = {
-        type: this.state.type,
-        typeId: response.id,
-        photoUrl: this.state.photoUrl
+      const response = await ReferenceManager.post(reference);
+      if (this.state.photoUrl) {
+        const photo = {
+          type: this.state.type,
+          typeId: response.id,
+          photoUrl: this.state.photoUrl
+        };
+        await PhotoManager.post(photo);
       }
-      await PhotoManager.post(photo)
-        this.props.history.push(`/projects/${this.props.projectId}/references`)
+      this.props.history.push(`/projects/${this.props.projectId}/references`);
     }
   };
 
   render() {
     return (
       <>
-      <OptionBar
-              taskId={this.props.taskId}
-              projectId={this.props.projectId}
+        <OptionBar
+          taskId={this.props.taskId}
+          projectId={this.props.projectId}
+        />
+        <h3 className="title">Add A Reference</h3>
+        <Form>
+          <Form.Group>
+            <Form.Label>Title:</Form.Label>
+            <Form.Control
+              type="text"
+              required
+              className="name"
+              onChange={this.handleFieldChange}
+              id="referenceName"
+              placeholder="Title"
             />
-        <form>
-          <fieldset>
-            <div className="formgrid">
-              <Form.Label>Title</Form.Label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="referenceName"
-                placeholder="Reference Name"
-              />
-              <label htmlFor="referenceNote">Note</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="referenceNote"
-              />
-              <label htmlFor="url">Link</label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="url"
-              />
-              <input
-                accept="image/*"
-                id="contained-button-file"
-                type="file"
-                onChange={this.fileSelectorHandler}
-              />
-              <label htmlFor="contained-button-file">
-                <Button
-                  variant="contained"
-                  component="span"
-                  onClick={this.fileUploadHandler}>
-                  Upload
-                </Button>
-              </label>{" "}
-              <br />
-            </div>
-          </fieldset>
-        </form>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Note:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
+              className="note"
+              required
+              onChange={this.handleFieldChange}
+              id="referenceNote"
+              placeholder="Note"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Link:</Form.Label>
+            <Form.Control
+              type="text"
+              className="link"
+              required
+              onChange={this.handleFieldChange}
+              id="url"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Control
+              accept="image/*"
+              id="contained-button-file"
+              type="file"
+              onChange={this.fileSelectorHandler}
+            />
+
+            {/* <Button
+                variant="secondary"
+                component="span"
+                onClick={this.fileUploadHandler}>
+                Upload
+              </Button> */}
+          </Form.Group>
+          <br />
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );
