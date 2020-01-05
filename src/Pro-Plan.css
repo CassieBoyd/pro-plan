@@ -54,6 +54,10 @@ body {
   margin-top: 100px;
 }
 
+.container-cards {
+  margin-bottom: 56px;
+}
+
 .uploadPhoto {
   width: 90%;
   margin: 1.5% 5% 2.5% 5%;
