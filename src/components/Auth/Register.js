@@ -5,8 +5,9 @@ class Register extends Component {
 render() {
     return (
         <>
-        <center><h1>Welcome to Project Planner!</h1>
-                <h3>Please log in.</h3></center>
+        <center id="register"><h1>Welcome to ProPlan!</h1>
+                </center>
+                <center><h3>Please log in:</h3></center>
                 </>
     )
 }

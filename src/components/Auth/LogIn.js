@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserManager from "../modules/UserManager";
+import { Row, Form, Button } from "react-bootstrap";
 class LogIn extends Component {
   // Set initial state
   state = {
@@ -35,32 +36,33 @@ class LogIn extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleLogin}>
-        <fieldset>
-          <h3>Log In</h3>
-          <div className="formgrid">
-            <input
+      <Form onSubmit={this.handleLogin}>
+        
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
               onChange={this.handleFieldChange}
               type="email"
               id="email"
+              className="login"
               placeholder="Email address"
               required=""
               autoFocus=""
             />
-            <label htmlFor="inputEmail">Email address</label>
-
-            <input
+<Form.Label>Password:</Form.Label>
+            <Form.Control
               onChange={this.handleFieldChange}
               type="password"
+              className="login"
               id="password"
               placeholder="Password"
               required=""
             />
-            <label htmlFor="inputPassword">Password</label>
-          </div>
-          <button type="submit">Log In</button>
-        </fieldset>
-      </form>
+          <center><Button 
+          type="submit"
+          id="login-button"
+          variant="secondary"
+          >Log In</Button></center>
+      </Form>
     );
   }
 }
