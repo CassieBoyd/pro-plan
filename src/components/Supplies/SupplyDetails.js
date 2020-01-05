@@ -44,7 +44,7 @@ class SupplyDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            <span>
+            <span className="detail">
               {this.state.supplyName}
             </span>
           </h3>

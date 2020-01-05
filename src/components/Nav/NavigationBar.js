@@ -8,10 +8,10 @@ class NavigationBar extends Component {
   render() {
     if (this.props.user === true)
     return (
-      <header className="navBar">
+      <header className="navBar sticky-top">
         <Navbar  variant fixed="sticky">
           <Nav className="container">
-            <Nav.Link href="/">ProPlan</Nav.Link>
+            <Nav.Link className="proplan" href="/">ProPlan</Nav.Link>
             <Nav.Link href="/LogIn" onClick={this.props.clearUser}>Log Out</Nav.Link>
 
           </Nav>

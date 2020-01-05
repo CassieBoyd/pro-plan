@@ -1,7 +1,8 @@
 .title {
   text-align: center;
   background-color: #64699e7e;
-  /* font-family: 'Neucha', cursive; */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
 }
 .name {
   width: 90%;
@@ -76,4 +77,12 @@ img {
 #register {
   background-color: #64699e;
   color: white
+}
+
+li {
+  font-family: 'Open Sans', sans-serif;
+}
+.detail {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
 }

@@ -23,9 +23,16 @@ small {
   }
   
   nav .container a {
-    color: black;
+    color: white;
   }
   
   nav .container a:hover {
+    color: white;
+  }
+
+  .proplan {
+    font-family: 'Saira Stencil One', cursive;
+    font-size: 30px;
+    padding: 0;
     color: white;
   }
