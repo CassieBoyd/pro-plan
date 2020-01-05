@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SupplyManager from "../modules/SupplyManager";
 import ActionBar from "../Nav/ActionBar";
-import { DropdownButton, Dropdown, Form } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form, Row, Col } from "react-bootstrap";
 import OptionBar from "../Nav/OptionBar";
 
 // import './SupplyForm.css'
@@ -55,55 +55,85 @@ class SupplyForm extends Component {
   render() {
     return (
       <>
-      <OptionBar
+        <OptionBar
           taskId={this.props.taskId}
           projectId={this.props.projectId}
         />
         <h3 className="title">Add A Supply</h3>
-        <Form>
-          <fieldset>
-            <div className="formgrid">
-              <Form.Label>Item:</Form.Label>
-              <input
-                type="text"
-                className="name"
-                required
-                onChange={this.handleFieldChange}
-                id="supplyName"
-                placeholder="Supply Name"
-              />
+        <Form style={{overflow: "scroll"}}>
+          <Form.Group>
+            <Form.Label>Item:</Form.Label>
+            <Form.Control
+              type="text"
+              className="name"
+              required
+              onChange={this.handleFieldChange}
+              id="supplyName"
+              placeholder="Item"
+            />
+          </Form.Group>
 
-              <Form.Label>Note:</Form.Label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="supplyNote"
-                placeholder="Note"
-              />
+          <Form.Group>
+            <Form.Label>Note:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
+              className="note"
+              required
+              onChange={this.handleFieldChange}
+              id="supplyNote"
+              placeholder="Note"
+            />
+          </Form.Group>
 
+          <Row>
+            <Col>
               <Form.Label>Quantity:</Form.Label>
-              <input
-                type="text"
-                required
-                onChange={this.handleFieldChange}
-                id="quantity"
-              />
+              <div style={{ display: "flex" }}>
+                <Form.Control
+                  type="text"
+                  className="quantity"
+                  onChange={this.handleFieldChange}
+                  id="quantity"
+                  placeholder="Qty."
+                />
 
-
-              <DropdownButton id="dropdown-basic-button" title={this.state.units ? this.state.units : "Units"} value={this.state.units} >
-                <Dropdown.Item onSelect={()=>this.setState({units:"ea"})}>ea</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"in"})}>in</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"yd"})}>yd</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"ft"})}>ft</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"gal"})}>gal</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"pt"})}>pt</Dropdown.Item>
-                <Dropdown.Item onSelect={()=>this.setState({units:"pr"})}>pr</Dropdown.Item>
+                <DropdownButton
+                  id="dropdown-basic-button"
+                  title={this.state.units ? this.state.units : "Units"}
+                  value={this.state.units}>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "ea" })}>
+                    ea
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "in" })}>
+                    in
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "yd" })}>
+                    yd
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "ft" })}>
+                    ft
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "gal" })}>
+                    gal
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "pt" })}>
+                    pt
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => this.setState({ units: "pr" })}>
+                    pr
+                  </Dropdown.Item>
                 </DropdownButton>
-
-              
-            </div>
-          </fieldset>
+              </div>
+            </Col>
+          </Row>
         </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
