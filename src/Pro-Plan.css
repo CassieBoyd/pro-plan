@@ -1,7 +1,8 @@
 .title {
   text-align: center;
   background-color: #64699e7e;
-  /* font-family: 'Neucha', cursive; */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
 }
 .name {
   width: 90%;
@@ -31,6 +32,7 @@
 
 label {
   margin-left: 10px;
+  font-weight: bold;
 }
 
 .card-content {
@@ -62,11 +64,25 @@ img {
   max-width: 100%
 }
 
-label {
-  font-weight: bold;
-}
-
 #dropdown-basic-button {
   background-color: gray;
   border-color: gray;
+}
+
+.login {
+  width: 90%;
+  margin: 1.5% 5% 2.5% 5%;
+}
+
+#register {
+  background-color: #64699e;
+  color: white
+}
+
+li {
+  font-family: 'Open Sans', sans-serif;
+}
+.detail {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
 }

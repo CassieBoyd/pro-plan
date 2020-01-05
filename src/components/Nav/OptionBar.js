@@ -6,7 +6,7 @@ import { FiPackage, FiLink, FiImage, FiShoppingCart, FiList } from "react-icons/
 class OptionBar extends Component {
   render() {
     return (
-        <header>
+        <header className="optionBar">
         <Navbar bg="secondary" variant fixed="sticky">
           <Nav className="container">
             
@@ -14,7 +14,7 @@ class OptionBar extends Component {
 
            <Nav.Link href={`/projects/${this.props.projectId}/purchases`}> <FiShoppingCart className="icon" size="30px" /></Nav.Link>
 
-            <Nav.Link href="/"><FiImage className="icon" size="30px" /></Nav.Link>
+            {/* <Nav.Link href="/"><FiImage className="icon" size="30px" /></Nav.Link> */}
 
             <Nav.Link href={`/projects/${this.props.projectId}/references`}><FiLink className="icon" size="30px" /></Nav.Link>
 

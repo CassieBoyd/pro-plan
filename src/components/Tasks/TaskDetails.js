@@ -44,7 +44,7 @@ class TaskDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            <span>
+            <span className="detail">
               {this.state.taskName}
             </span>
           </h3>

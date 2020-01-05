@@ -52,14 +52,14 @@ class PurchaseDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            <span>
+            <span className="detail">
               {this.state.purchaseName}
             </span>
           </h3>
           {this.state.purchaseNote ? (
             <p>Note: {this.state.purchaseNote}</p>
           ) : null}
-          {this.state.purchaseUrl ? (
+          {this.state.url ? (
           <p>Link: <a href={this.state.url}>URL</a></p>
           ) : null}
           <p>Cost: ${this.state.cost}</p>

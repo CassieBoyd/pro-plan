@@ -44,14 +44,17 @@ class SupplyDetail extends Component {
         />
         <div className="card-content">
           <h3>
-            {/* Supply:{" "} */}
-            <span style={{ color: "darkslategrey" }}>
+            <span className="detail">
               {this.state.supplyName}
             </span>
           </h3>
-          <p>Note: {this.state.supplyNote}</p>
-          <p>Units: {this.state.units}</p>
-          <p>Quantity: {this.state.quantity}</p>
+          {this.state.supplyNote ? (
+            <p>Note: {this.state.supplyNote}</p>
+          ) : null}
+
+          {this.state.quantity ? (
+            <p>Quantity: {this.state.quantity} {this.state.units}</p>
+          ) : null}
 
 
         </div>

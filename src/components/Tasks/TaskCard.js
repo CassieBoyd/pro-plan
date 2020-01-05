@@ -10,7 +10,7 @@ class TaskCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            <span style={this.props.task.complete ? {textDecoration: "line-through"} : null} className="card-taskname">{this.props.task.taskName}</span></h3>
+            <span style={this.props.task.complete ? {textDecoration: "line-through"} : null} className="card-taskname"><li>{this.props.task.taskName}</li></span></h3>
         </div>
         <Link to={`/projects/${this.props.projectId}/tasks/${this.props.task.id}`} className="stretched-link"></Link>
       </div>
