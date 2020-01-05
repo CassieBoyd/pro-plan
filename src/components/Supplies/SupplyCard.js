@@ -9,14 +9,14 @@ class SupplyCard extends Component {
         <div className="card-content">
           <h3>
             <span className="card-supplyname">
-              {this.props.supply.supplyName}
+              <li>{this.props.supply.supplyName}</li>
             </span>
           </h3>
-          {this.props.supply.supplyNote ? (
+          {/* {this.props.supply.supplyNote ? (
             <p>Note: {this.props.supply.supplyNote}</p>
           ) : null}
           <p>Quantity: {this.props.supply.quantity}</p>
-          <p>Units: {this.props.supply.units}</p>
+          <p>Units: {this.props.supply.units}</p> */}
         </div>
         <Link to={`/projects/${this.props.projectId}/supplies/${this.props.supply.id}`}
           className="stretched-link"></Link>
