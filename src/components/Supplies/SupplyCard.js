@@ -8,7 +8,6 @@ class SupplyCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            Item:{" "}
             <span className="card-supplyname">
               {this.props.supply.supplyName}
             </span>

@@ -6,7 +6,7 @@ import { FiPackage, FiLink, FiImage, FiShoppingCart, FiList } from "react-icons/
 class OptionBar extends Component {
   render() {
     return (
-        <header>
+        <header className="optionBar">
         <Navbar bg="secondary" variant fixed="sticky">
           <Nav className="container">
             

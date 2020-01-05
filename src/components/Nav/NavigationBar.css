@@ -2,9 +2,13 @@ small {
     font-size: 75%;
   }
   
-  header {
+  .navBar {
     background-color: #64699e;
     border: 0px;
+  }
+
+  .optionBar {
+
   }
   
   .site-title {

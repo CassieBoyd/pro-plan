@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import SupplyManager from "../modules/SupplyManager";
 import ActionBar from "../Nav/ActionBar";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import { DropdownButton, Dropdown, Form } from "react-bootstrap";
+import OptionBar from "../Nav/OptionBar";
 
 // import './SupplyForm.css'
 
@@ -54,19 +55,25 @@ class SupplyForm extends Component {
   render() {
     return (
       <>
-        <form>
+      <OptionBar
+          taskId={this.props.taskId}
+          projectId={this.props.projectId}
+        />
+        <h3 className="title">Add A Supply</h3>
+        <Form>
           <fieldset>
             <div className="formgrid">
-              <label htmlFor="supplyName">Item</label>
+              <Form.Label>Item:</Form.Label>
               <input
                 type="text"
+                className="name"
                 required
                 onChange={this.handleFieldChange}
                 id="supplyName"
                 placeholder="Supply Name"
               />
 
-              <label htmlFor="supplyNote">Note</label>
+              <Form.Label>Note:</Form.Label>
               <input
                 type="text"
                 required
@@ -75,7 +82,7 @@ class SupplyForm extends Component {
                 placeholder="Note"
               />
 
-              <label htmlFor="quantity">Quantity</label>
+              <Form.Label>Quantity:</Form.Label>
               <input
                 type="text"
                 required
@@ -97,7 +104,7 @@ class SupplyForm extends Component {
               
             </div>
           </fieldset>
-        </form>
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );

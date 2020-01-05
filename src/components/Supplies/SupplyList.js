@@ -30,6 +30,7 @@ class SupplyList extends Component {
       <div className="container-cards">
           {/* Passing projectId to OptionBar so user can go from one option to another within a Project and see the associated options of that Project */}
           <OptionBar projectId={this.props.projectId}/>
+          <h3 className="title">Supplies</h3>
         {this.state.supplies.map(supply => (
           <SupplyCard key={supply.id} supply={supply} {...this.props}/>
         ))}
