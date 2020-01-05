@@ -76,13 +76,25 @@ img {
 
 #register {
   background-color: #64699e;
-  color: white
+  color: white;
+  font-family: 'Saira Stencil One', cursive;
+
 }
 
 li {
   font-family: 'Open Sans', sans-serif;
 }
+
 .detail {
   font-family: 'Open Sans', sans-serif;
   font-size: 35px;
+}
+
+.card-projectname {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.date {
+  width: 70%;
+  margin: 1.5% 5% 2.5% 5%;
 }

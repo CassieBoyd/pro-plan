@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProjectManager from "../modules/ProjectManager";
 import ActionBar from "../Nav/ActionBar";
+import { Form } from "react-bootstrap";
 // import "./ProjectForm.css"
 
 class ProjectEditForm extends Component {
@@ -59,41 +60,43 @@ class ProjectEditForm extends Component {
   render() {
     return (
       <>
-        <form>
-          <fieldset>
-            <div className="formgrid">
-              <label htmlFor="projectName">Project Name</label>
-              <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="projectName"
-                value={this.state.projectName}
-              />
+        <Form>
+          <Form.Group>
+            <Form.Label>Project Name:</Form.Label>
+            <Form.Control
+              type="text"
+              required
+              className="name"
+              onChange={this.handleFieldChange}
+              id="projectName"
+              value={this.state.projectName}
+            />
+          </Form.Group>
 
-              <label htmlFor="dueDate">Due Date</label>
-              <input
-                type="date"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="dueDate"
-                value={this.state.dueDate}
-              />
+          <Form.Group>
+            <Form.Label>Due Date:</Form.Label>
+            <Form.Control
+              type="date"
+              required
+              className="date"
+              onChange={this.handleFieldChange}
+              id="dueDate"
+              value={this.state.dueDate}
+            />
+          </Form.Group>
 
-              <label htmlFor="startDate">Start Date</label>
-              <input
-                type="date"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
-                id="startDate"
-                value={this.state.startDate}
-              />
-            </div>
-          </fieldset>
-        </form>
+          <Form.Group>
+            <Form.Label>Start Date:</Form.Label>
+            <Form.Control
+              type="date"
+              required
+              className="date"
+              onChange={this.handleFieldChange}
+              id="startDate"
+              value={this.state.startDate}
+            />
+          </Form.Group>
+        </Form>
         <ActionBar saveItem={this.saveItem} cancelItem={this.cancelItem} />
       </>
     );
