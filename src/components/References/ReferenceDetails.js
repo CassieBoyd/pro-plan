@@ -4,7 +4,7 @@ import ActionBar from "../Nav/ActionBar";
 import OptionBar from "../Nav/OptionBar";
 import {Link} from "react-router-dom"
 import PhotoManager from "../modules/PhotoManager";
-import "./ReferenceDetails.css"
+import '../../Pro-Plan.css'
 
 
 class ReferenceDetail extends Component {
@@ -16,6 +16,11 @@ class ReferenceDetail extends Component {
   };
 
   deleteItem = async () => {
+    const referencePhoto = await PhotoManager.getAll("reference", this.props.referenceId)
+    console.log(referencePhoto)
+    if(referencePhoto.length > 0) {
+      await PhotoManager.delete(referencePhoto[0].id)
+    }
     await ReferenceManager.delete(this.props.referenceId);
     this.props.history.push(`/projects/${this.props.projectId}/references`);
   };
@@ -47,12 +52,16 @@ class ReferenceDetail extends Component {
         <div className="card-content">
           <h3>
             {/* Reference:{" "} */}
-            <span style={{ color: "darkslategrey" }}>
+            <span>
               {this.state.referenceName}
             </span>
           </h3>
-          <p>Note: {this.state.referenceNote}</p>
-          <p>Link: <a href={this.state.url}>URL</a></p>
+          {this.state.referenceNote ? (
+            <p>Note: {this.state.referenceNote}</p>
+          ) : null}
+          {this.state.url ? (
+            <p>Link: <a href={this.state.url}>URL</a></p>
+          ) : null}
           {this.state.photos.map(photo => (
                       <img key={photo.id} src={photo.photoUrl}></img>
 

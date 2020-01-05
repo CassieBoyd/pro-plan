@@ -7,7 +7,7 @@ class OptionBar extends Component {
   render() {
     return (
         <header>
-        <Navbar bg="primary" variant fixed="sticky">
+        <Navbar bg="secondary" variant fixed="sticky">
           <Nav className="container">
             
             <Nav.Link href={`/projects/${this.props.projectId}/tasks`}><FiList className="icon" size="30px" /></Nav.Link>

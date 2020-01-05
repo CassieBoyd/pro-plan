@@ -8,16 +8,15 @@ class ReferenceCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            {/* Title:{" "} */}
             <span className="card-referencename">
               {this.props.reference.referenceName}
             </span>
           </h3>
-          {this.props.reference.referenceNote ? (
+          {/* {this.props.reference.referenceNote ? (
             <p>Note: {this.props.reference.referenceNote}</p>
           ) : null}
-          <p>Link: <a href={this.props.reference.url}>URL</a></p>
-          <img src={this.props.reference.photoUrl}></img>
+          <p>Link: <a href={this.props.reference.url}>URL</a></p>*/}
+          {/* <img src={this.props.reference.photoUrl}></img>  */}
         </div>
         <Link to={`/projects/${this.props.projectId}/references/${this.props.reference.id}`}
           className="stretched-link"></Link>

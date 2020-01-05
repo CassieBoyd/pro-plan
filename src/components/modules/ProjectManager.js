@@ -6,7 +6,7 @@ export default {
   },
   getAll() {
     const userId = JSON.parse(localStorage.getItem("credentials")) 
-    console.log("USER", userId.id)
+    // console.log("USER", userId.id)
    
     return fetch(`${remoteURL}/projects?userId=${userId.id}&_sort=dueDate&_order=asc`).then(result => result.json());
   },

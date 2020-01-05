@@ -26,14 +26,17 @@ class ReferenceList extends Component {
     console.log("Reference List: Render");
 
     return (
+      <>
       <div className="container-cards">
           <OptionBar projectId={this.props.projectId}/>
+      <h3 className="title">References</h3>
         {this.state.references.map(reference => (
           <ReferenceCard key={reference.id} reference={reference} {...this.props}           deleteReference={this.deleteReference}
           />
         ))}
         <ActionBar addItem={this.addItem} />
       </div>
+      </>
     );
   }
 }
