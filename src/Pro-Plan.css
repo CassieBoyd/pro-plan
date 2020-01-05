@@ -1,5 +1,6 @@
 .title {
   text-align: center;
+  background-color: #64699e7e;
   /* font-family: 'Neucha', cursive; */
 }
 .name {
@@ -32,10 +33,6 @@ label {
   margin-left: 10px;
 }
 
-.card {
-  border: 0;
-}
-
 .card-content {
   margin-left: 10px;
   margin-right: 10px;
@@ -47,6 +44,8 @@ body {
 
 .card {
   background-color: transparent;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
 }
 
 .container-card {
@@ -57,4 +56,17 @@ body {
   width: 90%;
   margin: 1.5% 5% 2.5% 5%;
   background-color: white
+}
+
+img {
+  max-width: 100%
+}
+
+label {
+  font-weight: bold;
+}
+
+#dropdown-basic-button {
+  background-color: gray;
+  border-color: gray;
 }

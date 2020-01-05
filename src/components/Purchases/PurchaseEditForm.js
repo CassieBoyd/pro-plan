@@ -141,7 +141,7 @@ class PurchaseEditForm extends Component {
               </Col>
 
 <Col>
-              <Form.Label>Cost</Form.Label>
+              <Form.Label>Cost:</Form.Label>
               <Form.Control
                 type="text"
                 className="cost"
@@ -154,7 +154,7 @@ class PurchaseEditForm extends Component {
               </Row>
               
 
-              <Form.Label>Link</Form.Label>
+              <Form.Label>Link:</Form.Label>
               <Form.Control
                 type="text"
                 className="link"

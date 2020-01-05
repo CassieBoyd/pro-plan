@@ -52,7 +52,7 @@ class ReferenceDetail extends Component {
         <div className="card-content">
           <h3>
             {/* Reference:{" "} */}
-            <span style={{ color: "darkslategrey" }}>
+            <span>
               {this.state.referenceName}
             </span>
           </h3>
