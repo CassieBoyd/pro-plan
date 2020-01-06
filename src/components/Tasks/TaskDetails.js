@@ -22,6 +22,8 @@ class TaskDetail extends Component {
   };
   completeItem = async () => {
     await TaskManager.patch({ id: this.props.taskId, complete: true });
+    this.props.history.push(`/projects/${this.props.projectId}/tasks`);
+
   };
 
   componentDidMount() {
