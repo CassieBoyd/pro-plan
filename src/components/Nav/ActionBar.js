@@ -8,6 +8,7 @@ class ActionBar extends Component {
     return (
       <header>
         <Navbar
+        className="nav-bar"
           style={{
             display: "flex",
             justifyContent: "space-around"
